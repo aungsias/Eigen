@@ -1,20 +1,23 @@
 import streamlit as st
-import yfinance as yf
 import datetime as dt
 import plotly.graph_objects as go
 import pandas as pd
 from io import BytesIO
 
+# Load the CSV to get the list of available tickers
+prices = pd.read_csv("workflow/data/snp_prices.csv", index_col=0, parse_dates=True)
+available_tickers = prices.columns.to_list()
+
 # Title
 st.title("Stock Price Dashboard")
 
 # User input
-ticker = st.text_input("Enter Stock Ticker:", "AAPL")
+ticker = st.selectbox("Choose Stock Ticker:", available_tickers, index=0)
 start_date = st.date_input("Start Date:", value=dt.datetime(2015, 1, 1))
 end_date = st.date_input("End Date:", value=dt.datetime.now())
 
-# Fetch stock data
-stock_data = yf.download(ticker, start=start_date, end=end_date)
+# Fetch stock data from the CSV
+stock_data = prices.loc[(prices.index >= pd.Timestamp(start_date)) & (prices.index <= pd.Timestamp(end_date)), [ticker]]
 
 if stock_data.empty:
     st.write("No data available for the given dates.")
@@ -42,7 +45,7 @@ else:
     fig.add_trace(
         go.Scatter(
             x=stock_data.index,
-            y=stock_data['Close'],
+            y=stock_data[ticker],
             mode='lines',
             name='Closing Price',
             line=dict(color='green')
