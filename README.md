@@ -49,7 +49,8 @@ In this project, I've constructed a machine learning framework that operates as 
 3. **Feature Engineering** - Engineered features capture essential market variables: log returns, Sharpe ratios, and lagged features. Each feature is validated for stationarity. PCA mitigates multicollinearity.
 3. **Target Engineering** - Sectoral returns are the primary targets, calculated as average log returns within each GICS Sector, providing a sector-focused strategy.
 4. **"Model of Models" Architecture** - Utilizes multiple machine learning models. Biannually, models are retrained and assessed. The top-performing model is chosen via a custom loss function penalizing overpredictions. The sector indicated by this model is the investment focus. A naïve model, which forecasts future returns based solely on the past six months of returns, is also included to serve as a rudimentary but necessary baseline for model comparison.
-5. **Backtesting** - The selected investment strategy is backtested, accounting for transaction costs, over a historical period to validate its efficacy.
+5. After sector selection, the asset allocation within the chosen sector is optimized using mean-variance optimization techniques, specifically Maximum Sharpe Ratio, Risk Parity, and Minimum Variance methods. These techniques are categorized under mean-variance optimization due to their focus on optimizing the risk-return profile of the portfolio. A naive $1/n$ portfolio, where all available assets are given equal allocations, was used a benchmark to ground the results of the optimization techniques employed.
+6. **Backtesting** - The selected investment strategy is backtested, accounting for transaction costs, over a historical period to validate its efficacy. 
 
 ## Data
 
@@ -202,3 +203,31 @@ The biannual model recalibration also provides insights into sector preferences 
 
 #### Sectoral Clusters
 What's interesting with the selection of sectors is that there's a proclivity for a chosen sector to be selected in the subsequent recalibration cycle. For instance, "Energy" was consecutively chosen multiple times, especially from 2021 through 2023. This could suggest the model's ability to identify and capitalize on enduring trends within particular sectors, which may speak to its temporal consistency.
+
+### Backtesting
+
+The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to September 11<sup>th</sup>, 2023) and evaluated the portfolio's performance across four distinct asset allocation strategies: Maximum Sharpe Ratio, Risk Parity, Equal Weighting, and Minimum Variance. These strategies were compared against key market sectors and the S&P 500 index.
+
+#### Asset Allocation Strategies
+
+<p align="center">
+    <img src="workflow/img/allocation_comparison.png" alt="Allocation Backtest" width="65%" height="65%">
+</p>
+
+- **Maximum Sharpe Ratio**: Showed the highest Sharpe ratio of 0.479 and an impressive cumulative return of 2.36 times the initial investment. The annualized return was 14.93%, although this came with higher annualized volatility at 31.20%.
+- **Risk Parity**: Had a Sharpe ratio of 0.35 and a cumulative return of 1.51 times the initial investment, with an annualized return of 9.57% and a volatility of 27.35%.
+- **Equal Weighting**: Achieved a Sharpe ratio of 0.404 and a cumulative return of 1.46 times the initial investment. The portfolio's annualized return was 9.24%, with a volatility of 22.89%.
+- **Minimum Variance**: Recorded a Sharpe ratio of 0.346 and a cumulative return of 1.18 times the initial investment. It had an annualized return of 7.50% and a volatility of 21.69%.
+
+#### Sector Performance (Top 5)
+- **Technology**: This sector had a Sharpe ratio of 0.5 and a cumulative return of 2.04 times the initial investment, with an annualized return of 12.92%.
+- **Healthcare**: Registered a Sharpe ratio of 0.567, a cumulative return of 1.77 times the initial investment, and an annualized return of 11.19%.
+- **Industrials**: Had a Sharpe ratio of 0.465, a cumulative return of 1.76 times the initial investment, and an annualized return of 11.12%.
+- **Consumer Discretionary: Posted a Sharpe ratio of 0.416, a cumulative return of 1.70 times the initial investment, and an annualized return of 10.74%.
+
+#### S&P 500 Index
+The S&P 500 index had a Sharpe ratio of 0.444, a cumulative return of 1.44 times the initial investment, and an annualized return of 9.11%.
+
+#### Summary
+The Maximum Sharpe Ratio strategy outperformed all individual sectors and the S&P 500 index in terms of both Sharpe ratio and cumulative return. However, this performance came with heightened volatility. Among sectors, Healthcare led in Sharpe ratio but was second to Technology in cumulative and annualized returns. Overall, the asset allocation strategies, particularly Maximum Sharpe Ratio, demonstrated their effectiveness in maximizing portfolio returns over a 16-year period.
+
