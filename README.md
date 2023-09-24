@@ -188,7 +188,7 @@ Over the course of the biannual recalibrations, different models emerged as the 
 - **Random Forest**: Also chosen on 3 occasions and achieved an average OUE of 0.093, underscoring its potential utility as part of the ensemble.
 
 ### Comparison with the Naïve Model
-The naïve model outperformed all other models on May 28, 2020, as evidenced by its lowest Over-Under Loss (OUL) score of 0.151. In the context of this loss function, which penalizes overpredictions more heavily, the naïve model's superior performance suggests it made fewer and less severe overestimations on that specific date. This could be particularly valuable in a long-only investment strategy where overpredictions could lead to overexposure to risk. During this period, the market may have been in a state of equilibrium—a state of mean reversion—or following predictable cyclical trends, making the past a reliable predictor of the immediate future. 
+The naïve model outperformed all other models on May 28, 2020, as evidenced by its lowest OUE score of 0.151. In the context of this loss function, which penalizes overpredictions more heavily, the naïve model's superior performance suggests it made fewer and less severe overestimations on that specific date. This could be particularly valuable in a long-only investment strategy where overpredictions could lead to overexposure to risk. During this period, the market may have been in a state of equilibrium—a state of mean reversion—or following predictable cyclical trends, making the past a reliable predictor of the immediate future. 
 
 That said, the model was selected as the best performer only once out of the 32 time frames. Given this sporadic performance, I deemed it too fickle for consistent inclusion in the ensemble and omitted it to focus on models that demonstrate more reliable performance across various market conditions. The Elastic Net model was chosen in its stead.
 
@@ -211,7 +211,15 @@ What's interesting with the selection of sectors is that there's a proclivity fo
 
 ### Backtesting
 
-The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to September 11<sup>th</sup>, 2023) and evaluated the portfolio's performance across four distinct asset allocation strategies: Maximum Sharpe Ratio, Risk Parity, Equal Weighting, and Minimum Variance. These strategies were compared against key market sectors and the S&P 500 index.
+The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to September 11<sup>th</sup>, 2023) and evaluated the portfolio's performance across four distinct asset allocation strategies: Maximum Sharpe Ratio, Risk Parity, Equal Weighting, and Minimum Variance. These strategies were compared against key market sectors and the S&P 500 index. 
+
+#### Transaction Costs
+
+Transaction costs were accounted for as per:
+
+$$C_{i} = r \times ∣\Delta{w_{i}}∣$$
+
+Where $C_{i}$ is the transaction cost for the $i^{\text{th}}$ rebalancing period, $r$ is the cost rate, representing the proportion of the traded volume that is incurred as a transaction cost, and $∣\Delta{w_{i}}∣$ is the absolute change in asset weights between the $i^{\text{th}}$ and $(i-1)^{\text{th}}$ period. This approach allows for costs to adjust based on changes in portfolio allocation, capturing not only the shifts in asset weights but also scales them with a rate that reflects the transaction costs as a fraction of the traded volume.
 
 #### Asset Allocation Strategies
 
