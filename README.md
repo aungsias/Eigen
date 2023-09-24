@@ -222,7 +222,7 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
 #### Sector Performance (Top 5)
 
 <p align="center">
-    <img src="workflow/img/sector_comparison.png" alt="Sector Backtest" width="65%" height="65%">
+    <img src="workflow/img/sector_comparison.png" alt="Sector Backtest" width="70%" height="70%">
 </p>
 
 - **Technology**: This sector had a Sharpe ratio of 0.5 and a cumulative return of 2.04 times the initial investment, with an annualized return of 12.92%.
