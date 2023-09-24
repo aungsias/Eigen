@@ -35,6 +35,11 @@ September 9<sup>th</sup>, 2023
     - [Comparison with the Naïve Model](#comparison-with-the-naïve-model)
     - [Sector Selection](#sector-selection)
         - [Sectoral Clusters](#sectoral-clusters)
+    - [Backtesting](#backtesting)
+        - [Asset Allocation Strategies](#asset-allocation-strategies)
+        - [Sector Performance (Top 4)](#sector-performance-top-4)
+        - [S&P 500 Index](#sp-500-index)
+        - [Summary](#summary)
 
 ## Abstract
 In this project, I've engineered an adaptive machine learning algorithm that undergoes biannual recalibration to select the most accurate model for sector-based investment strategies. To counteract the pitfalls of over-forecasting, the algorithm employs a custom loss function that penalizes overpredictions. It comprehensively integrates a diverse range of financial indicators, including equity, debt, commodities, and market volatility. To enhance computational efficiency and model precision, I employed Principal Component Analysis for feature reduction. The model's robustness was substantiated through a 15-year backtest, during which it outperformed the SPY index by an estimated 91.85%. The finalized, vetted model has been encapsulated in a real-time dashboard.
@@ -219,7 +224,7 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
 - **Equal Weighting**: Achieved a Sharpe ratio of 0.404 and a cumulative return of 1.46 times the initial investment. The portfolio's annualized return was 9.24%, with a volatility of 22.89%.
 - **Minimum Variance**: Recorded a Sharpe ratio of 0.346 and a cumulative return of 1.18 times the initial investment. It had an annualized return of 7.50% and a volatility of 21.69%.
 
-#### Sector Performance (Top 5)
+#### Sector Performance (Top 4)
 
 <p align="center">
     <img src="workflow/img/sector_comparison.png" alt="Sector Backtest" width="70%" height="70%">
