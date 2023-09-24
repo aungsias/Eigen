@@ -32,6 +32,7 @@ September 9<sup>th</sup>, 2023
     - [Risk Parity](#risk-parity)
 - [Results](#results)
     - [Model Performance](#model-performance)
+    - [Comparison with the Naïve Model](#comparison-with-the-naïve-model)
     - [Sector Selection](#sector-selection)
     - [Sequential Sector Selection](#sequential-sector-selection)
 
@@ -75,7 +76,7 @@ The feature set is crafted to encapsulate diverse market indicators and sectoral
 The final dataset comprises 120 features, tested for stationarity. Initially, a heatmap of feature correlations revealed significant concerns regarding multicollinearity:
 
 <p align="center">
-    <img src="img/feature_correlations.png" alt="Feature Correlations" width="45%" height="45%">
+    <img src="workflow/img/feature_correlations.png" alt="Feature Correlations" width="45%" height="45%">
 </p>
 
 However, this issue was mitigated using Principal Component Analysis (PCA) within the modeling pipelines.
@@ -135,7 +136,7 @@ This ensemble enables the framework to adapt to a variety of market conditions, 
 The framework employs a dynamic "Model of Models" architecture that re-trains each constituent model biannually, using data from the preceding six months. The model yielding the best Over-Under Error (OUE) score is selected as the lead model for the subsequent period. This chosen model identifies the most promising sector for investment based on the mean of its predicted returns. Stocks from the chosen sector are identified via their GICS segmentation. The resulting table is as such:
 
 <p align="center">
-    <img src="img/model_sector_results.png" alt="Results" width="65%" height="65%">
+    <img src="workflow/img/model_sector_results.png" alt="Results" width="65%" height="65%">
 </p>
 
 Following this, stock allocations are optimized based on mean-variance optimization methods, specifically the Maximum Sharpe Ratio, Risk Parity, and Minimum Variance optimizations. This cyclical recalibration ensures that the models and subsequently the investor's historical portfolio are updated with prevailing market conditions, optimizing both sector selection (via machine learning) and intra-sector asset allocation (via mean variance optimization).
