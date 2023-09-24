@@ -3,8 +3,9 @@ import datetime as dt
 import plotly.graph_objects as go
 import pandas as pd
 from io import BytesIO
+from math import sqrt
 
-# Load the CSV to get the list of available tickers
+# Load the CSV
 prices = pd.read_csv("workflow/data/snp_prices.csv", index_col=0, parse_dates=True)
 available_tickers = prices.columns.to_list()
 
@@ -13,42 +14,56 @@ page = st.sidebar.selectbox(
     ('View Stocks', 'Our Services')
 )
 
-
 if page == 'View Stocks':
     st.title("Stock Price Dashboard")
 
-    # User input
+    # User Input
     ticker = st.selectbox("Choose Stock Ticker:", available_tickers, index=0)
-    start_date = st.date_input("Start Date:", value=dt.datetime(2015, 1, 1))
-    end_date = st.date_input("End Date:", value=dt.datetime.now())
 
-    # Fetch stock data from the CSV
+    # Date range options
+    date_option = st.selectbox('Select Time Range:', ['Custom', 'YTD', '1Y', '5Y'])
+    
+    if date_option == 'Custom':
+        start_date = st.date_input("Start Date:", value=dt.datetime(2015, 1, 1))
+        end_date = st.date_input("End Date:", value=dt.datetime.now())
+    elif date_option == 'YTD':
+        start_date = dt.datetime(dt.datetime.now().year, 1, 1)
+        end_date = dt.datetime.now()
+    elif date_option == '1Y':
+        start_date = dt.datetime.now() - dt.timedelta(days=365)
+        end_date = dt.datetime.now()
+    elif date_option == '5Y':
+        start_date = dt.datetime.now() - dt.timedelta(days=1825)
+        end_date = dt.datetime.now()
+
+    # Fetch Data
     stock_data = prices.loc[(prices.index >= pd.Timestamp(start_date)) & (prices.index <= pd.Timestamp(end_date)), [ticker]]
 
-
     if stock_data.empty:
-        st.write("No data available for the given dates.")
+        st.write("No data available.")
     else:
-        # Option to display table
+        # Volatility Calculation
+        annual_volatility = stock_data[ticker].pct_change().std() * sqrt(252)
+        st.write(f"Annual Volatility: {annual_volatility:.2%}")
+
+        # Table Display
         show_table = st.checkbox("See Table")
         if show_table:
             st.dataframe(stock_data)
-        
-        # Download CSV button
+
+        # Download CSV
         csv_buffer = BytesIO()
         stock_data.to_csv(csv_buffer)
         csv_buffer.seek(0)
         st.download_button(
-            label="Download CSV",
-            data=csv_buffer,
+            "Download CSV",
+            csv_buffer,
             file_name=f"{ticker}_{start_date}_{end_date}.csv",
-            mime="text/csv",
+            mime="text/csv"
         )
 
-        # Plotting with Plotly
+        # Plot
         fig = go.Figure()
-
-        # Add traces
         fig.add_trace(
             go.Scatter(
                 x=stock_data.index,
@@ -59,19 +74,15 @@ if page == 'View Stocks':
             )
         )
 
-        # Customize layout
         fig.update_layout(
             title=f"{ticker} Closing Prices",
             xaxis_title="Date",
             yaxis_title="Closing Price (USD)",
-            template="plotly_dark",
-            xaxis=dict(showline=True, showgrid=False, showticklabels=True, linecolor='rgb(204, 204, 204)', linewidth=2),
-            yaxis=dict(showgrid=False, zeroline=False, showline=True, linecolor='rgb(204, 204, 204)'),
+            template="plotly_dark"
         )
 
         st.plotly_chart(fig)
 
-# Code for "Our Services" page
 elif page == 'Our Services':
     st.title("Our Services")
     st.write("Information about our services.")
