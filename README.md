@@ -257,6 +257,10 @@ Where $C_{i}$ is the transaction cost for the $i^{\text{th}}$ rebalancing period
     <img src="workflow/img/allocation_comparison.png" alt="SPY Backtest" width="65%" height="65%">
 </p>
 
+<p align="center">
+    <img src="workflow/img/spy_plot.png" alt="SPY Backtest Plot" width="65%" height="65%">
+</p>
+
 The S&P 500 index had a Sharpe ratio of 0.444, a cumulative return of 1.44 times the initial investment, and an annualized return of 9.11%.
 
 #### Summary
