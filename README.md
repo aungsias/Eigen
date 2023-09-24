@@ -47,7 +47,7 @@ In this project, I've constructed a machine learning framework that operates as 
 1. **Data Retrieval** - Retrieve prices for stocks and indices via `yfinance`.
 3. **Feature Engineering** - Engineered features capture essential market variables: log returns, Sharpe ratios, and lagged features. Each feature is validated for stationarity. PCA mitigates multicollinearity.
 3. **Target Engineering** - Sectoral returns are the primary targets, calculated as average log returns within each GICS Sector, providing a sector-focused strategy.
-4. **"Model of Models" Architecture** - Utilizes multiple machine learning models. Biannually, models are retrained and assessed. The top-performing model is chosen via a custom loss function penalizing overpredictions. The sector indicated by this model is the investment focus.
+4. **"Model of Models" Architecture** - Utilizes multiple machine learning models. Biannually, models are retrained and assessed. The top-performing model is chosen via a custom loss function penalizing overpredictions. The sector indicated by this model is the investment focus. A naïve model, which forecasts future returns based solely on the past six months of returns, is also included to serve as a rudimentary but necessary baseline for model comparison.
 5. **Backtesting** - The selected investment strategy is backtested, accounting for transaction costs, over a historical period to validate its efficacy.
 
 ## Data
@@ -126,7 +126,7 @@ The machine learning framework in this project comprises an ensemble of diverse 
 All regression models are configured with `random_state = 42` for reproducibility. 
 
 #### Time Series Models
-- **Naive**: Forecasts future returns based on the past six months of returns. Serves as a benchmark for performance.
+- **Naïve**: Forecasts future returns based on the past six months of returns. Serves as a benchmark for performance.
 - **ARIMAX**: Time series model that incorporates external variables to forecast future returns.
 
 This ensemble enables the framework to adapt to a variety of market conditions, making it robust and versatile. The biannual recalibration process assesses the performance of these models, selecting the most effective one for the upcoming period.
@@ -180,6 +180,11 @@ Over the course of the biannual recalibrations, different models emerged as the 
 - **Extreme Gradient Boosting (XGB)**: Chosen on 3 occasions, it posted an average OUE of 0.098. While less frequently chosen, its performance metrics indicate that it's a viable alternative under specific circumstances.
 - **Random Forest**: Also chosen on 3 occasions and achieved an average OUE of 0.093, underscoring its potential utility as part of the ensemble.
 
+### Comparison with the Naïve Model
+The naïve model outperformed all other models on May 28, 2020, as evidenced by its lowest Over-Under Loss (OUL) score of 0.151. In the context of this loss function, which penalizes overpredictions more heavily, the naïve model's superior performance suggests it made fewer and less severe overestimations on that specific date. This could be particularly valuable in a long-only investment strategy where overpredictions could lead to overexposure to risk. During this period, the market may have been in a state of equilibrium—a state of mean reversion—or following predictable cyclical trends, making the past a reliable predictor of the immediate future. 
+
+That said, model was selected as the best performer only once out of the 32 time frames. Given this sporadic performance, I deemed it too fickle for consistent inclusion in the ensemble and omitted it to focus on models that demonstrate more reliable performance across various market conditions.
+
 ### Sector Selection
 
 The biannual model recalibration also provides insights into sector preferences over time:
@@ -195,4 +200,4 @@ The biannual model recalibration also provides insights into sector preferences 
 - Communication Services: 1 occurrence
 
 #### Sequential Sector Selection
-It's noteworthy that once a sector is chosen, there's a proclivity for it to be selected in the subsequent recalibration cycle. For instance, "Energy" was consecutively chosen multiple times, especially from 2021 through 2023. This could suggest the model's ability to identify and capitalize on enduring trends within particular sectors, which may speak to its temporal consistency.
+What's interesting with the selection of sectors is that there's a proclivity for a chosen sector to be selected in the subsequent recalibration cycle. For instance, "Energy" was consecutively chosen multiple times, especially from 2021 through 2023. This could suggest the model's ability to identify and capitalize on enduring trends within particular sectors, which may speak to its temporal consistency.

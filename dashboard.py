@@ -11,10 +11,10 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Custom modules and functions
-import capstone.portfolio.optimize as opt
-from capstone.portfolio.prune import prune_recommended_portfolios
-from capstone.model_selection import overunder_error
-from capstone.utils import read_file, get_sectors
+import workflow.capsstone.portfolio.optimize as opt
+from workflow.capstone.portfolio.prune import prune_recommended_portfolios
+from workflow.capstone.model_selection import overunder_error
+from workflow.capstone.utils import read_file, get_sectors
 
 # Machine learning and modeling tools
 from sklearn.decomposition import PCA
