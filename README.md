@@ -184,7 +184,7 @@ Over the course of the biannual recalibrations, different models emerged as the 
 ### Comparison with the Naïve Model
 The naïve model outperformed all other models on May 28, 2020, as evidenced by its lowest Over-Under Loss (OUL) score of 0.151. In the context of this loss function, which penalizes overpredictions more heavily, the naïve model's superior performance suggests it made fewer and less severe overestimations on that specific date. This could be particularly valuable in a long-only investment strategy where overpredictions could lead to overexposure to risk. During this period, the market may have been in a state of equilibrium—a state of mean reversion—or following predictable cyclical trends, making the past a reliable predictor of the immediate future. 
 
-That said, model was selected as the best performer only once out of the 32 time frames. Given this sporadic performance, I deemed it too fickle for consistent inclusion in the ensemble and omitted it to focus on models that demonstrate more reliable performance across various market conditions.
+That said, the model was selected as the best performer only once out of the 32 time frames. Given this sporadic performance, I deemed it too fickle for consistent inclusion in the ensemble and omitted it to focus on models that demonstrate more reliable performance across various market conditions. The Elastic Net model was chosen in its stead.
 
 ### Sector Selection
 
