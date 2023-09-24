@@ -217,9 +217,9 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
 
 Transaction costs were accounted for as per:
 
-$$C_{i} = r \times ∣\Delta{w_{i}}∣$$
+$$C_{i} = r \times \left|\Delta{w_{i}}\right|$$
 
-Where $C_{i}$ is the transaction cost for the $i^{\text{th}}$ rebalancing period, $r$ is the cost rate, representing the proportion of the traded volume that is incurred as a transaction cost, and $∣\Delta{w_{i}}∣$ is the absolute change in asset weights between the $i^{\text{th}}$ and $(i-1)^{\text{th}}$ period. This approach allows for costs to adjust based on changes in portfolio allocation, capturing not only the shifts in asset weights but also scales them with a rate that reflects the transaction costs as a fraction of the traded volume.
+Where $C_{i}$ is the transaction cost for the $i^{\text{th}}$ rebalancing period, $r$ is the cost rate, representing the proportion of the traded volume that is incurred as a transaction cost, and $\left|\Delta{w_{i}}\right|$ is the absolute change in asset weights between the $i^{\text{th}}$ and $(i-1)^{\text{th}}$ period. This approach allows for costs to adjust based on changes in portfolio allocation, capturing not only the shifts in asset weights but also scales them with a rate that reflects the transaction costs as a fraction of the traded volume.
 
 #### Asset Allocation Strategies
 
