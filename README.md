@@ -220,12 +220,22 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
 - **Minimum Variance**: Recorded a Sharpe ratio of 0.346 and a cumulative return of 1.18 times the initial investment. It had an annualized return of 7.50% and a volatility of 21.69%.
 
 #### Sector Performance (Top 5)
+
+<p align="center">
+    <img src="workflow/img/sector_comparison.png" alt="Sector Backtest" width="65%" height="65%">
+</p>
+
 - **Technology**: This sector had a Sharpe ratio of 0.5 and a cumulative return of 2.04 times the initial investment, with an annualized return of 12.92%.
 - **Healthcare**: Registered a Sharpe ratio of 0.567, a cumulative return of 1.77 times the initial investment, and an annualized return of 11.19%.
 - **Industrials**: Had a Sharpe ratio of 0.465, a cumulative return of 1.76 times the initial investment, and an annualized return of 11.12%.
-- **Consumer Discretionary: Posted a Sharpe ratio of 0.416, a cumulative return of 1.70 times the initial investment, and an annualized return of 10.74%.
+- **Consumer Discretionary**: Posted a Sharpe ratio of 0.416, a cumulative return of 1.70 times the initial investment, and an annualized return of 10.74%.
 
 #### S&P 500 Index
+
+<p align="center">
+    <img src="workflow/img/allocation_comparison.png" alt="SPY Backtest" width="65%" height="65%">
+</p>
+
 The S&P 500 index had a Sharpe ratio of 0.444, a cumulative return of 1.44 times the initial investment, and an annualized return of 9.11%.
 
 #### Summary
