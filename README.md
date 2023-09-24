@@ -34,7 +34,7 @@ September 9<sup>th</sup>, 2023
     - [Model Performance](#model-performance)
     - [Comparison with the Naïve Model](#comparison-with-the-naïve-model)
     - [Sector Selection](#sector-selection)
-    - [Sequential Sector Selection](#sequential-sector-selection)
+        - [Sectoral Clusters](#sequential-sector-selection)
 
 ## Abstract
 In this project, I've engineered an adaptive machine learning algorithm that undergoes biannual recalibration to select the most accurate model for sector-based investment strategies. To counteract the pitfalls of over-forecasting, the algorithm employs a custom loss function that penalizes overpredictions. It comprehensively integrates a diverse range of financial indicators, including equity, debt, commodities, and market volatility. To enhance computational efficiency and model precision, I employed Principal Component Analysis for feature reduction. The model's robustness was substantiated through a 15-year backtest, during which it outperformed the SPY index by an estimated 91.85%. The finalized, vetted model has been encapsulated in a real-time dashboard.
@@ -200,5 +200,5 @@ The biannual model recalibration also provides insights into sector preferences 
 - Utilities: 2 occurrences
 - Communication Services: 1 occurrence
 
-#### Sequential Sector Selection
+#### Sectoral Clusters
 What's interesting with the selection of sectors is that there's a proclivity for a chosen sector to be selected in the subsequent recalibration cycle. For instance, "Energy" was consecutively chosen multiple times, especially from 2021 through 2023. This could suggest the model's ability to identify and capitalize on enduring trends within particular sectors, which may speak to its temporal consistency.
