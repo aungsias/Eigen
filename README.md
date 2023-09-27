@@ -6,8 +6,8 @@ September 9<sup>th</sup>, 2023
 ---
 
 ## Contents
-- [Abstract](#abstract)
-- [Introduction](#introduction)
+- [Overview](#overview)
+- [Business Understanding: Adaptive Sector Selection](#business-understanding-adaptive-sector-selection)
 - [Methodology](#methodology)
 - [Data](#data)
 - [Feature & Target Engineering](#feature--target-engineering)
@@ -49,13 +49,15 @@ September 9<sup>th</sup>, 2023
     - [Analytical Limitations](#analytical-limitations)
 - [Future Work](#future-work)
 
-## Abstract
+## Overview
 In this project, I've engineered an adaptive machine learning algorithm that undergoes biannual recalibration to select the most accurate model for sector-based investment strategies. To counteract the pitfalls of over-forecasting, the algorithm employs a custom loss function that penalizes overpredictions. It comprehensively integrates a diverse range of financial indicators, including equity, debt, commodities, and market volatility. To enhance computational efficiency and model precision, I employed Principal Component Analysis for feature reduction. The model's robustness was substantiated through a 15-year backtest, during which it outperformed the SPY index by an estimated 91.85%. The finalized, vetted model has been encapsulated in a real-time dashboard.
 
-## Introduction
-Financial markets are inherently volatile and self-correcting, subject to externalities including but not limited to equities, debt instruments, commodities, and market sentiment. Traditional investment models often falter in this ever-changing landscape, and even adaptable strategies like sector rotation are usually limited by heuristic-based decision-making.
+## Business Understanding: Adaptive Sector Selection
+The mercurial landscape of the financial markets warrent strategies that are dynamic and adapative, but even strategies like sector rotation often fall short due to their reliance on static heuristics. This project mitigates such limitations by employing a machine learning-driven "model of models" framework. This ensemble of algorithms undergoes biannual retraining and evaluation. The best-performing model is then selected for the next six-month cycle, ensuring the investment strategy continually adapts to current market conditions.
 
-In this project, I've constructed a machine learning framework that operates as a "model of models." Rather than being a singular static model, it encompasses multiple machine learning algorithms. Every six months, each constituent model is retrained and assessed for performance. The best-performing model is then selected for the ensuing period, thereby ensuring that the framework remains attuned to the current market conditions. Each model selects a sector based on the mean predicted returns—the sector with the highest return is chosen. This framework is then backtested over a 15-year period to substantiate the framework's efficacy.
+Once the leading model is identified, it selects the investment sector based on its predicted mean returns, specifically targeting the sector forecasted to yield the highest return. This dynamic, model-driven sector selection aims to optimize investment outcomes by leveraging timely and precise machine learning predictions.
+
+The strategy is then tested via a 15-year backtest, offering empirical validation of its sector-based approach. Thus, the framework's utility manifests in its ability to not only adapt to market vicissitudes but also pinpoint the most promising sectors for investment based on forecasts.
 
 ## Methodology
 1. **Data Retrieval** - Retrieve prices for stocks and indices via `yfinance`.
@@ -66,7 +68,6 @@ In this project, I've constructed a machine learning framework that operates as 
 6. **Backtesting** - The selected investment strategy is backtested, accounting for transaction costs, over a historical period to validate its efficacy. 
 
 ## Data
-
 The initial data pool encompassed daily prices of all 503 constituents of the S&P 500 (the tickers for which were scraped from [Wikipedia](https://en.wikipedia.org/wiki/List_of_S%26P_500_companies)), along with four pivotal market indices: the Vanguard Total Stock Market Index Fund ETF (VTI), the 
 Invesco DB Commodity Index Tracking Fund (DBC), the iShares Core US Aggregate Bond ETF (AGG), and the Chicago Board Options Exchange's CBOE Volatility Index (VIX) used as proxies for the prices of stocks, commodities, bonds, and volatility. All prices were fetched using the [`yfinance`](https://pypi.org/project/yfinance/) package. However, data gaps necessitated a refinement of this dataset and the analytical timeframe. Post-cleaning, the effective timeframe spanned from November 17, 2006, to September 11, 2023.
 

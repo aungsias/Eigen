@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
 
+from statsmodels.tsa.stattools import adfuller
+from tqdm.auto import tqdm
+
 def read_file(file_name, path=None, index_col=None):
     """
     Read a CSV file and return it as a DataFrame.
@@ -65,3 +68,22 @@ def set_plot_style():
     sns.set_style("whitegrid")
     plt.rcParams["lines.linewidth"] = 1
     plt.rcParams["axes.edgecolor"] = "k"
+
+def test_stationarity(df):
+    """
+    Test the stationarity of each column in a DataFrame using the Augmented Dickey-Fuller (ADF) test.
+
+    Parameters:
+        df (pandas.DataFrame): DataFrame containing time series data, where each column represents a distinct time series.
+
+    Returns:
+        pandas.Series: A Series object containing the ADF test results for each column. 'Stationary' if p-value < 0.05, otherwise 'Non-Stationary'.
+    """
+    results = {}
+    for col in tqdm(df.columns):
+        adf_test = adfuller(df[col], autolag='AIC')
+        p_value = adf_test[1]
+        results[col] = "Stationary" if p_value < 0.05 else "Non-Stationary"
+
+    return pd.Series(results)
+
