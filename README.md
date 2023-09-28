@@ -5,7 +5,7 @@ September 9<sup>th</sup>, 2023
 
 ---
 
-<span style="color:red">repository status: work-in-progress</span>
+- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`
 
 ---
 
