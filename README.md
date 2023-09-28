@@ -5,7 +5,9 @@ September 9<sup>th</sup>, 2023
 
 ---
 
-- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`
+```diff
+- work in progress
+```
 
 ---
 
