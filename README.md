@@ -9,8 +9,6 @@ September 9<sup>th</sup>, 2023
 - work in progress
 ```
 
----
-
 ## Contents
 - [Overview](#overview)
 - [Business Understanding: Adaptive Sector Selection](#business-understanding-adaptive-sector-selection)
