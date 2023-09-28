@@ -1,7 +1,11 @@
-# Dynamic Portfolio Optimization with Sector Rotation & Machine Learning
+# Dynamic Portfolio Construction with Sector Rotation & Machine Learning
 
 Aung Si<br>
 September 9<sup>th</sup>, 2023
+
+---
+
+<span style="color:red">repository status: work-in-progress</span>
 
 ---
 
