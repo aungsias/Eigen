@@ -129,8 +129,8 @@ def arimax_cross_val_score(X: DataFrame,
 
     return cv_scores
 
-def naive_cross_val_score(r_hat: Series, 
-                          r_true: Series, 
+def naive_cross_val_score(r_true: Series, 
+                          r_hat: Series, 
                           cv: int, 
                           scorer: Callable, 
                           **scorer_kwargs: Optional[Any]) -> List[float]:
@@ -138,8 +138,8 @@ def naive_cross_val_score(r_hat: Series,
     Perform time-series cross-validation using a naive forecast model.
 
     Parameters:
-        - r_hat (Series): Predicted target values.
         - r_true (Series): Actual target values.
+        - r_hat (Series): Predicted target values.
         - cv (int): Number of splits/folds for time-series cross-validation.
         - scorer (Callable): Scoring function to evaluate the predictions. 
                              Must take two arrays 'y_true' and 'y_pred' as arguments,
