@@ -155,7 +155,11 @@ The S&P 500 index had a Sharpe ratio of 0.444, a cumulative return of 1.44 times
 The Maximum Sharpe Ratio strategy outperformed all individual sectors and the S&P 500 index in terms of both Sharpe ratio and cumulative return. However, this performance came with heightened volatility. Among sectors, Healthcare led in Sharpe ratio but was second to Technology in cumulative and annualized returns. Overall, the asset allocation strategies, particularly Maximum Sharpe Ratio, demonstrated their effectiveness in maximizing portfolio returns over a 16-year period.
 
 ## Present-Day Model Usage
-To learn the framework used to employ the model today in real time, see the [Backtest and Present-Day Model Usage](3_backtest_and_present_day.ipynb) notebook.
+To learn the framework used to employ the model today in real time, see the [Backtest and Present-Day Model Usage](3_backtest_and_present_day.ipynb) notebook. As of right now, the model is telling us to invest in the Materials sector. Specifically the Maximum Sharpe ratio suggests the following allocations:
+
+<p align="center">
+    <img src="workflow/img/ms_port_today.png" alt="Maximum Sharpe Portfolio" width="65%" height="65%">
+</p>
 
 ## Conclusion
 
