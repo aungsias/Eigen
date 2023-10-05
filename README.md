@@ -203,6 +203,8 @@ Addressing the above would significantly extend the model's applicability, robus
 
 ```
 .
+|-- presentation/
+|   |-- presentation.pdf
 |-- workflow/
 |   |-- data/
 |   |-- img/
