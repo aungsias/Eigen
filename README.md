@@ -156,10 +156,10 @@ The Maximum Sharpe Ratio strategy outperformed all individual sectors and the S&
 
 ## Present-Day Model Usage
 To learn the framework used to employ the model today in real time, see the [Backtest and Present-Day Model Usage](3_backtest_and_present_day.ipynb) notebook. As of right now, the model is telling us to invest in the Materials sector. Specifically the Maximum Sharpe ratio suggests the following allocations:
-
 <p align="center">
-    <img src="workflow/img/ms_port_today.png" alt="Maximum Sharpe Portfolio" width="65%" height="65%">
+    <img src="workflow/img/ms_port_today.png" alt="Maximum Sharpe Portfolio" width="40%" height="40%">
 </p>
+At present time, the model recommended that we invest in the Materials sector.  The model's six-month focus aligns with current inflationary conditions that typically favor the materials sector. Its short-term investment horizon allows for temporal arbitrage, capitalizing on present economic conditions before they change, which provides a data-backed rationale for immediate investment in materials, ahead of expected inflationary cooling.
 
 ## Conclusion
 
