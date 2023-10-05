@@ -184,6 +184,8 @@ Finally, the model leans heavily on the Sharpe ratio as a measure of risk-adjust
 Addressing the above would significantly extend the model's applicability, robustness, and performance, making it a more compelling tool for dynamic portfolio management.
 
 ## Repository Structure
+
+```
 .
 |-- workflow/
 |   |-- data/
@@ -205,3 +207,4 @@ Addressing the above would significantly extend the model's applicability, robus
 |-- LICENSE
 |-- README.md
 |-- requirements.txt
+```
