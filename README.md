@@ -6,6 +6,7 @@ October 4<sup>th</sup>, 2023
 ---
 
 ## Contents
+- [Installation](#installation)
 - [Overview](#overview)
 - [Business Understanding: Adaptive Sector Selection](#business-understanding-adaptive-sector-selection)
 - [Methdology](#methodology)
@@ -19,6 +20,21 @@ October 4<sup>th</sup>, 2023
 - [Limitations](#limitations)
 - [Future Work](#future-work)
 - [Repository Structure](#repository-structure)
+
+## Installation
+
+To clone the repository and install required packages for this project, follow these steps:
+
+```bash
+# Clone the repository
+git clone https://github.com/your_username/DynamicPortfolioConstruction.git
+
+# Navigate to the project directory
+cd DynamicPortfolioConstruction
+
+# Install required packages
+pip install -r requirements.txt
+```
 
 ## Overview
 In this project, I've engineered an adaptive machine learning algorithm that undergoes biannual recalibration to select the most accurate model for sector-based investment strategies. To counteract the pitfalls of over-forecasting, the algorithm employs a custom loss function that penalizes overpredictions. It comprehensively integrates a diverse range of financial indicators, including equity, debt, commodities, and market volatility. To enhance computational efficiency and model precision, I employed Principal Component Analysis for feature reduction. The model's robustness was substantiated through a 15-year backtest, during which it outperformed the SPY index by an estimated 91.85%.
