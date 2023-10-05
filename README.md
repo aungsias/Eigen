@@ -1,13 +1,9 @@
 # Dynamic Portfolio Construction with Sector Rotation & Machine Learning
 
 Aung Si<br>
-September 9<sup>th</sup>, 2023
+October 4<sup>th</sup>, 2023
 
 ---
-
-```diff
-- work in progress
-```
 
 ## Contents
 - [Overview](#overview)
