@@ -56,8 +56,7 @@ Further adjustment involved feature shifting to accommodate a 252-day forecast, 
 
 ## Feature & Target Engineering
 
-### Features
-The feature set is crafted to encapsulate diverse market indicators and sectoral insights. For details on the entire feature and target engineering process, see the [Data, Features, and Targets](1_data_features_targets.ipynb) notebook.s
+The feature set for this project is crafted to encapsulate diverse market indicators and sectoral insights. This project also engineers sectoral average returns as targets to provide sector-level model insights with respect to the investment strategy, and also to increase computational efficiency. For details on the entire feature and target engineering process, see the [Data, Features, and Targets](1_data_features_targets.ipynb) notebook.
 
 ## Modeling
 
