@@ -27,7 +27,7 @@ To clone the repository and install required packages for this project, follow t
 
 ```bash
 # Clone the repository
-git clone https://github.com/your_username/DynamicPortfolioConstruction.git
+git clone https://github.com/aungsias/DynamicPortfolioConstruction.git
 
 # Navigate to the project directory
 cd DynamicPortfolioConstruction
