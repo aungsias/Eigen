@@ -18,6 +18,7 @@ October 4<sup>th</sup>, 2023
 - [Conclusion](#conclusion)
 - [Limitations](#limitations)
 - [Future Work](#future-work)
+- [Repository Structure](#repository-structure)
 
 ## Overview
 In this project, I've engineered an adaptive machine learning algorithm that undergoes biannual recalibration to select the most accurate model for sector-based investment strategies. To counteract the pitfalls of over-forecasting, the algorithm employs a custom loss function that penalizes overpredictions. It comprehensively integrates a diverse range of financial indicators, including equity, debt, commodities, and market volatility. To enhance computational efficiency and model precision, I employed Principal Component Analysis for feature reduction. The model's robustness was substantiated through a 15-year backtest, during which it outperformed the SPY index by an estimated 91.85%.
@@ -181,3 +182,26 @@ Finally, the model leans heavily on the Sharpe ratio as a measure of risk-adjust
 - **Sensitivity Analysis**: The model could undergo sensitivity analysis to assess its robustness against changes in initial conditions, such as different starting capital or alternative asset allocation strategies.
 
 Addressing the above would significantly extend the model's applicability, robustness, and performance, making it a more compelling tool for dynamic portfolio management.
+
+## Repository Structure
+.
+|-- workflow/
+|   |-- data/
+|   |-- img/
+|   |-- tools/
+|   |   |-- portfolio
+|   |   |   |-- backtest.py
+|   |   |   |-- metrics.py
+|   |   |   |-- optimize.py
+|   |   |   |-- prune.py
+|   |   |   |-- __init__.py
+|   |   |-- model_selection.py
+|   |   |-- utils.py
+|   |-- __init__.py
+|-- .gitignore
+|-- 1_data_features_targets.ipynb
+|-- 2_modeling_and_optimization.ipynb
+|-- 3_backtest_and_present_day.ipynb
+|-- LICENSE
+|-- README.md
+|-- requirements.txt
