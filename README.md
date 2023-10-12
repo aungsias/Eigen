@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ```
 
 ## Overview
-In this project, I've engineered an adaptive machine learning algorithm that undergoes biannual recalibration to select the most accurate model for sector-based investment strategies. To counteract the pitfalls of over-forecasting, the algorithm employs a custom loss function that penalizes overpredictions. It comprehensively integrates a diverse range of financial indicators, including equity, debt, commodities, and market volatility. To enhance computational efficiency and model precision, I employed Principal Component Analysis for feature reduction. The model's robustness was substantiated through a 15-year backtest, during which it outperformed the SPY index by an estimated 91.85%.
+In this project, I've engineered an adaptive machine learning algorithm that undergoes biannual recalibration to select the most accurate model for sector-based investment strategies. To counteract the pitfalls of over-forecasting, the algorithm employs a custom loss function that penalizes overpredictions. It comprehensively integrates a diverse range of financial indicators, including equity, debt, commodities, and market volatility. To enhance computational efficiency and model precision, I employed Principal Component Analysis for feature reduction. The model's robustness was substantiated through a 15-year backtest, during which it outperformed the SPY index by an estimated 114.68%.
 
 ## Business Understanding: Adaptive Sector Selection
 Current investment models are hampered by their inability to adapt swiftly to market changes, making them less predictive and more risky. This maladaptation is a significant drawback, as today's markets are influenced by a myriad of dynamic factors, from tech advances to geopolitical shifts.
@@ -123,10 +123,10 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
     <img src="workflow/img/allocation_comparison.png" alt="Allocation Backtest" width="65%" height="65%">
 </p>
 
-- **Maximum Sharpe Ratio**: Showed the highest Sharpe ratio of 0.479 and an impressive cumulative return of 2.36 times the initial investment. The annualized return was 14.93%, although this came with higher annualized volatility at 31.20%.
-- **Risk Parity**: Had a Sharpe ratio of 0.35 and a cumulative return of 1.51 times the initial investment, with an annualized return of 9.57% and a volatility of 27.35%.
-- **Equal Weighting**: Achieved a Sharpe ratio of 0.404 and a cumulative return of 1.46 times the initial investment. The portfolio's annualized return was 9.24%, with a volatility of 22.89%.
-- **Minimum Variance**: Recorded a Sharpe ratio of 0.346 and a cumulative return of 1.18 times the initial investment. It had an annualized return of 7.50% and a volatility of 21.69%.
+- **Maximum Sharpe Ratio**: Showed the highest Sharpe ratio of 0.479 and an impressive cumulative return of 223.7% the initial investment. The annualized return was 14.11%, although this came with higher annualized volatility at 30.83%.
+- **Risk Parity**: Had a Sharpe ratio of 0.37 and a cumulative return of 159% the initial investment, with an annualized return of 10.02% and a volatility of 27.03%.
+- **Equal Weighting**: Achieved a Sharpe ratio of 0.42 and a cumulative return of 1.45 times the initial investment. The portfolio's annualized return was 9.14%, with a volatility of 22.02%.
+- **Minimum Variance**: Recorded a Sharpe ratio of 0.36 and a cumulative return of 120.55% the initial investment. It had an annualized return of 7.60% and a volatility of 21.35%.
 
 #### Sector Performance (Top 4)
 
@@ -134,10 +134,10 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
     <img src="workflow/img/sector_comparison.png" alt="Sector Backtest" width="70%" height="70%">
 </p>
 
-- **Technology**: This sector had a Sharpe ratio of 0.5 and a cumulative return of 2.04 times the initial investment, with an annualized return of 12.92%.
-- **Healthcare**: Registered a Sharpe ratio of 0.567, a cumulative return of 1.77 times the initial investment, and an annualized return of 11.19%.
-- **Industrials**: Had a Sharpe ratio of 0.465, a cumulative return of 1.76 times the initial investment, and an annualized return of 11.12%.
-- **Consumer Discretionary**: Posted a Sharpe ratio of 0.416, a cumulative return of 1.70 times the initial investment, and an annualized return of 10.74%.
+- **Technology**: This sector had a Sharpe ratio of 0.49 and a cumulative return of 200.1% the initial investment, with an annualized return of 12.62%.
+- **Healthcare**: Registered a Sharpe ratio of 0.55, a cumulative return of 169.29% the initial investment, and an annualized return of 10.68%.
+- **Industrials**: Had a Sharpe ratio of 0.45, a cumulative return of 169.23% the initial investment, and an annualized return of 10.68%.
+- **Consumer Discretionary**: Posted a Sharpe ratio of 0.41, a cumulative return of 167.52% the initial investment, and an annualized return of 10.57%.
 
 #### S&P 500 Index
 
@@ -149,7 +149,7 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
     <img src="workflow/img/spy_plot.png" alt="SPY Backtest Plot" width="65%" height="65%">
 </p>
 
-The S&P 500 index had a Sharpe ratio of 0.444, a cumulative return of 1.44 times the initial investment, and an annualized return of 9.11%.
+The S&P 500 index had a Sharpe ratio of 0.33, a cumulative return of 100.9% the initial investment, and an annualized return of 6.88%. The Maximum Sharpe ratio outperformed the S&P 500 by 114.68%
 
 #### Summary
 The Maximum Sharpe Ratio strategy outperformed all individual sectors and the S&P 500 index in terms of both Sharpe ratio and cumulative return. However, this performance came with heightened volatility. Among sectors, Healthcare led in Sharpe ratio but was second to Technology in cumulative and annualized returns. Overall, the asset allocation strategies, particularly Maximum Sharpe Ratio, demonstrated their effectiveness in maximizing portfolio returns over a 16-year period.
