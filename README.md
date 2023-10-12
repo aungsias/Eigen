@@ -1,4 +1,4 @@
-# Dynamic Portfolio Construction with Sector Rotation & Machine Learning
+# Dynamic Asset Management via Machine Learning
 
 Aung Si<br>
 October 4<sup>th</sup>, 2023
