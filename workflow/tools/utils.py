@@ -22,32 +22,6 @@ def read_file(file_name, path=None, index_col=None):
         return pd.read_csv(f"workflow/data/{file_name}.csv", index_col=index_col, parse_dates=True)
     else:
         return pd.read_csv(f"workflow/{path}/{file_name}.csv", index_col=index_col, parse_dates=True)
-    
-def save_models(models: dict):
-    """
-    Serialize and save a dictionary of models to a pickled file.
-
-    Parameters:
-        models (dict): Dictionary containing model names as keys and trained model objects as values.
-
-    The function stores the models in a pickled file located in the 'data' directory, with the file name 'models.pkl'.
-    """
-    with open("data/models.pkl", "wb") as f:
-        pickle.dump(models, f)
-        
-def load_models():
-    """
-    Deserialize and load a dictionary of models from a pickled file.
-
-    Returns:
-        dict: Dictionary containing model names as keys and trained model objects as values.
-
-    The function reads the models from a pickled file located in the 'data' directory, with the file name 'models.pkl'.
-    """
-    with open("data/models.pkl", "rb") as f:
-        models = pickle.load(f)
-    return models
-
 
 def get_sectors():
     """
@@ -58,6 +32,17 @@ def get_sectors():
     """
     with open("workflow/data/sector_list.pkl", "rb") as f:
         return pickle.load(f)
+    
+def get_snp():
+    """
+    Retrieve the S&P 500 ticker list from Wikipedia.
+
+    Returns:
+        list: List of tickers
+    """
+    snp_url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+    snp_table = pd.read_html(snp_url)[0]
+    return snp_table["Symbol"].str.replace(".", "-").to_list()
 
 def set_plot_style():
     """

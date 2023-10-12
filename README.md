@@ -142,7 +142,7 @@ The backtesting phase spanned 16 years (from November 20<sup>th</sup>, 2007 to S
 #### S&P 500 Index
 
 <p align="center">
-    <img src="workflow/img/allocation_comparison.png" alt="SPY Backtest" width="65%" height="65%">
+    <img src="workflow/img/spy_comparison.png" alt="SPY Backtest" width="65%" height="65%">
 </p>
 
 <p align="center">
