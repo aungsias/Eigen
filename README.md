@@ -10,5 +10,5 @@ Feel free to explore, and thank you for taking the time to visit my repository.
 
 ## Contact Info
 
-| Email     | [aungsi.as99Q@gmail.com](mailto:aungsi.as99@gmail.com) |
-| LinkedIn  | [Aung Si](https://www.linkedin.com/in/aungsi99) |
+- Email: [aungsi.as99@gmail.com](mailto:aungsi.as99@gmail.com)
+- LinkedIn: [Aung Si](https://www.linkedin.com/in/aungsi99)
