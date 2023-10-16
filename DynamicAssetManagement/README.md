@@ -75,11 +75,9 @@ The feature set for this project is crafted to encapsulate diverse market indica
 
 This project employs a dynamic ensemble of machine learning and time series models, recalibrated biannually, to identify optimal investment sectors and asset allocations. The architecture incorporates diverse algorithms and optimization techniques, ensuring adaptability to market conditions. See the [Modeling & Optimization](2_modeling_and_optimization.ipynb) notebook for more details.
 
-Following this, stock allocations are optimized based on mean-variance optimization methods, specifically the Maximum Sharpe Ratio, Risk Parity, and Minimum Variance optimizations. This cyclical recalibration ensures that the models and subsequently the investor's historical portfolio are updated with prevailing market conditions, optimizing both sector selection (via machine learning) and intra-sector asset allocation (via mean variance optimization).
+### Mean-Variance Optimization
 
-## Mean-Variance Optimization
-
-After the modeling process, I use mean-variance optimization to fine-tune asset allocation within the chosen investment sector. Three techniques—Maximum Sharpe Ratio, Minimum Variance, and Risk Parity—optimize for risk-adjusted return, reduced volatility, and equal risk contribution, respectively. See the [Modeling & Optimization](2_modeling_and_optimization.ipynb) notebook for more details.
+After each 126-day modeling period, I use mean-variance optimization to fine-tune asset allocation within the chosen investment sector. In essence, the portfolios are **rebalanced every half year**. Three techniques—Maximum Sharpe Ratio, Minimum Variance, and Risk Parity—optimize for risk-adjusted return, reduced volatility, and equal risk contribution, respectively. See the [Modeling & Optimization](2_modeling_and_optimization.ipynb) notebook for more details.
 
 ## Results
 
