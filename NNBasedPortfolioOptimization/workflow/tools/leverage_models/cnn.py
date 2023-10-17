@@ -23,7 +23,7 @@ class CNNPortOpt_L(torch.nn.Module):
         """
 
         super().__init__()
-        self.conv1 = torch.nn.Conv1d(input_channels, hidden_size, kernel_size=5)
+        self.conv1 = torch.nn.Conv1d(input_channels, hidden_size, kernel_size=3)
         self.fc = None
         self.sigmoid = torch.nn.Sigmoid()
 
