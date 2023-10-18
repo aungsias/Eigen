@@ -96,7 +96,9 @@ Understanding the mathematical properties of activation functions is paramount w
 
 The Softmax function for a given vector $z$ is defined as:
 
-$$\text{Softmax}(z)_{i} = \frac{e^{z_{i}}}{\sum^K_{j=1}e^{z_{j}}}$$
+\[
+\text{Softmax}(z)_{i} = \frac{e^{z_{i}}}{\sum^K_{j=1}e^{z_{j}}}
+\]
 
 Where $K$ is the number of classes (or assets in the context of portfolio allocation). The output is a probability distribution over K classes, meaning the sum of the outputs is exactly 1. This is suitable for non-leveraged portfolio allocations where the sum of asset allocations must equal the total investment.
 
