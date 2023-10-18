@@ -132,7 +132,9 @@ The crux of the optimization problem resides in the above models' output layer, 
 
 The objective function used to train each model is the key innovation brought forth by the authors of the original paper. Instead of traditional loss functions such as Mean Squared Error (MSE) and the like, each model is trained to maximize the Sharpe ratio per trading period (1 day):
 
-$$L_{T} = \frac{E[R_{p, t}]}{\text{Std}{[R_{p, t}]}} = \frac{E[R_{p,t}]}{\sqrt{E[R^{2}_{p,t}] - (E[R_{p,t}])^{2}}}$$
+<p align="center">
+    <img src="workflow/img/obj_func.png" alt="Obj. Function" width="20%" height="20%">
+</p>
 $$\text{where}$$
 $$E[R_{p,t}] = \frac{1}{T} \sum^T_{t=1} R_{p,t}$$
 $$\text{and}$$
