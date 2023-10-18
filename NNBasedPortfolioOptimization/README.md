@@ -137,8 +137,11 @@ The objective function used to train each model is the key innovation brought fo
 </p>
 
 $$\text{where}$$
+
 $$E[R_{p,t}] = \frac{1}{T} \sum^T_{t=1} R_{p,t}$$
+
 $$\text{and}$$
+
 $$R_{p,t} = \sum^{K}_{i=1}w_{i,t} \times R_{i,t}\quad\text{;}\quad K=4$$
 
 $R_{p,t}$ is the return of the portfolio at time $t$, taken as the sum product of the allocation at time $t$ determined by the model of each asset $i$ and the asset's actual logarithmic return at time $t$. The expected portfolio return, ${E[R_{p,t}]}$ is taken as the mean of the returns within the batch.
