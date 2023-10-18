@@ -17,36 +17,7 @@ def neg_sharpe_ratio(outputs: torch.Tensor, targets: torch.Tensor) -> torch.Tens
     """
     portfolio_returns = (outputs * targets).sum(dim=1)
     mean_portfolio_return = portfolio_returns.mean()
-    volatility = torch.std(portfolio_returns)
-    return - (mean_portfolio_return / volatility) * (252 / np.sqrt(252))
-
-def neg_max_return(outputs: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
-    """
-    Computes the expected return for the given portfolio returns.
-
-    This function returns a negative value beacuse it's intended to be minimized in an 
-    optimization setting.
-
-    Parameters:
-    - outputs (torch.Tensor): Predicted portfolio weights.
-    - targets (torch.Tensor): Realized asset returns.
-
-    Returns:
-    - torch.Tensor: Expected return of the portfolio.
-    """
-    portfolio_returns = (outputs * targets).sum(dim=1)
-    return - portfolio_returns.mean() * 252
-
-def portfolio_risk(outputs: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
-    """
-    Computes the annualized portfolio risk (standard deviation) for the given portfolio returns.
-
-    Parameters:
-    - outputs (torch.Tensor): Predicted portfolio weights.
-    - targets (torch.Tensor): Realized asset returns.
-
-    Returns:
-    - torch.Tensor: Annualized portfolio risk.
-    """
-    portfolio_returns = (outputs * targets).sum(dim=1)
-    return torch.std(portfolio_returns) * np.sqrt(252)
+    sq_of_mean_portfoliio_return = mean_portfolio_return ** 2
+    mean_portfolio_return_sq = (portfolio_returns ** 2).mean()
+    volatility = (mean_portfolio_return_sq - sq_of_mean_portfoliio_return) ** 0.5
+    return - (mean_portfolio_return / volatility) * (np.sqrt(252))
