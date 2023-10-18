@@ -1,6 +1,6 @@
 import torch
 
-class LSTMPortOpt_L(torch.nn.Module):
+class FCNPortOpt_L(torch.nn.Module):
     """
     A neural network model designed for portfolio optimization using LSTM layers.
     
@@ -20,13 +20,16 @@ class LSTMPortOpt_L(torch.nn.Module):
         - output_size (int): The size of the output.
         """
         super().__init__()
-        self.lstm = torch.nn.LSTM(input_size, hidden_size, batch_first=True)
-        self.fc = torch.nn.Linear(hidden_size, output_size, bias=True)
+        self.fc1 = torch.nn.Linear(input_size, hidden_size, bias=True)
+        self.fc2 = torch.nn.Linear(hidden_size, output_size, bias=True)
         self.sigmoid = torch.nn.Sigmoid()
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        lstm_out, _ = self.lstm(x)
-        lstm_out_last = lstm_out[:, -1, :]
-        fc_out = self.fc(lstm_out_last)
-        output = self.sigmoid(fc_out)
+
+        if len(x.shape) > 1:
+            x = torch.flatten(x, start_dim=1, end_dim=-1)
+    
+        x = torch.relu(self.fc1(x))
+        x = self.fc2(x)
+        output = self.sigmoid(x)
         return output
