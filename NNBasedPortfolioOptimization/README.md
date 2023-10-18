@@ -133,7 +133,7 @@ The crux of the optimization problem resides in the above models' output layer, 
 The objective function used to train each model is the key innovation brought forth by the authors of the original paper. Instead of traditional loss functions such as Mean Squared Error (MSE) and the like, each model is trained to maximize the Sharpe ratio per trading period (1 day):
 
 <p align="center">
-    <img src="workflow/img/obj_func.png" alt="Obj. Function" width="23%" height="23%">
+    <img src="workflow/img/obj_func.png" alt="Obj. Function" width="26%" height="26%">
 </p>
 
 $$\text{where}$$
