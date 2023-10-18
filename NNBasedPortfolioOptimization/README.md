@@ -143,7 +143,7 @@ $$E[R_{p,t}] = \frac{1}{T} \sum^T_{t=1} R_{p,t}$$
 $$\text{and}$$
 
 <p align="center">
-    <img src="workflow/img/ret_func.png" alt="Ret. Function" width="30%" height="30%">
+    <img src="workflow/img/ret_func.png" alt="Ret. Function" width="25%" height="25%">
 </p>
 
 
