@@ -15,7 +15,7 @@ def neg_sharpe_ratio(outputs: torch.Tensor, targets: torch.Tensor) -> torch.Tens
     Returns:
     - torch.Tensor: Negative Sharpe ratio of the portfolio.
     """
-    portfolio_returns = (outputs * targets).sum(dim=1)
+    portfolio_returns = (outputs * targets).sum(axis=1)
     mean_portfolio_return = portfolio_returns.mean()
     sq_of_mean_portfoliio_return = mean_portfolio_return ** 2
     mean_portfolio_return_sq = (portfolio_returns ** 2).mean()
