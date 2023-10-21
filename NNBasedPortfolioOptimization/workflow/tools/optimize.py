@@ -32,4 +32,4 @@ def max_sharpe_mv_opt(init_weights, past_rets, leverage=False):
         constraints=constraints
     )
 
-    return opt.x
+    return -opt.fun, opt.x
