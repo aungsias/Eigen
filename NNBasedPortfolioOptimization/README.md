@@ -270,7 +270,7 @@ This project set out to ascertain the efficacy of neural networks in optimizing 
 
 - **Leverage Benefits and Risks:** The leveraged LSTM model registered remarkable performance metrics but at the cost of heightened volatility and potential risks, thus necessitating a higher risk tolerance from investors.
 - **COVID-19 Downturn:** During the tumultuous period of early 2020, the LSTM models displayed adept asset allocation strategies, optimizing portfolio performance amidst market volatility.
-- **Real-world Feasibility:&& When accounting for transaction costs, borrowing costs, and principal amortization, the models still yielded returns superior to the market, bolstering the study's external validity.
+- **Real-world Feasibility:** When accounting for transaction costs, borrowing costs, and principal amortization, the models still yielded returns superior to the market, bolstering the study's external validity.
 - **Objective Function:** Using the Sharpe ratio as the objective function proved instrumental in guiding the models to achieve risk-adjusted performance, diverging from conventional loss functions like MSE.
 
 In summary, this study corroborates the utility of neural networks, particularly LSTM models, as potent tools for portfolio optimization. Their adaptability, ability to handle complex temporal patterns, and resilience against market volatilities make them viable alternatives to traditional methods. Nonetheless, investors would do well to weigh the risk-return trade-offs, particularly when considering leveraged strategies.
