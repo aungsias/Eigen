@@ -177,7 +177,7 @@ The models are retrained every two years, using all data available up until that
 **No-leverage Models:**
 
 <p align="center">
-    <img src="workflow/img/no_lev_training_scheme.png" alt="Training Scheme, No Leverage" width="45%" height="45%">
+    <img src="workflow/img/no_lev_training_scheme.png" alt="Training Scheme, No Leverage" width="60%" height="60%">
     <br>
 </p>
 
@@ -186,7 +186,7 @@ In the FCN and CNN architectures, there's a noticeable disparity between trainin
 **Leveraged Models:**
 
 <p align="center">
-    <img src="workflow/img/lev_training_scheme.png" alt="Training Scheme, Leveraged" width="45%" height="45%">
+    <img src="workflow/img/lev_training_scheme.png" alt="Training Scheme, Leveraged" width="60%" height="60%">
     <br>
 </p>
 
