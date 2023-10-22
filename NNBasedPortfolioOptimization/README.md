@@ -150,7 +150,7 @@ $R_{p,t}$ is the return of the portfolio at time $t$, taken as the sum product o
 By default, the models follow gradient descent, but we intend to maximize the Sharpe ratio via gradient *ascent*,
 
 <p align="center">
-    <img src="workflow/img/gradient_ascent.png" alt="Gradient Ascent" width="25%" height="25%">
+    <img src="workflow/img/gradient_ascent.png" alt="Gradient Ascent" width="15%" height="15%">
 </p>
 
 so in the code, the objective function is written to return a negative value.* View the [`metrics`](workflow/tools/metrics.py) module to see the implementation of the objective function in code.
