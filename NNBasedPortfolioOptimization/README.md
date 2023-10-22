@@ -18,8 +18,8 @@ October 21<sup>st</sup>, 2023
     - [4.2 Activation Functions: Sigmoid vs Softmax](#42-activation-functions-sigmoid-vs-softmax)
         - [4.2.1 Softmax](#421-softmax)
         - [4.2.2 Sigmoid](#422-sigmoid)
-        - [4.2.3](#423-interpreting-probabilities-as-portfolio-allocations)
-        - [4.2.4](#424-leverage-factor)
+        - [4.2.3 Interpreting Probabilities as Portfolio Allocations](#423-interpreting-probabilities-as-portfolio-allocations)
+        - [4.2.4 Leverage Factor](#424-leverage-factor)
     - [4.3 Model Architectures, Inputs, Targets, and Outputs](#43-model-architectures-inputs-targets-and-outputs)
     - [4.4 Objective Function](#44-objective-function)
     - [4.5 Training Scheme](#45-training-scheme)
@@ -126,7 +126,7 @@ The sigmoid function ranges between 0 and 1, and it effectively squashes its inp
 
 However, the sigmoid function treats each output independently, meaning that the sum of the outputs is not constrained to be 1. In a leveraged scenario, this flexibility is advantageous, allowing the sum of allocations to be greater than the initial investment (representing borrowing) or less than the initial investment (indicating holding cash).
 
-#### 4.2.3 Interpreting Probabilities as Portfolio Allocations:
+#### 4.2.3 Interpreting Probabilities as Portfolio Allocations
 
 The beauty of using these activation functions in portfolio management lies in their ability to transmute raw model outputs into interpretable portfolio allocations. Both sigmoid and softmax render outputs that align with the structure of probability distributions. Within the investment milieu, such probabilities are construed as the proportionate allocations of a portfolio to varying assets. For instance, should an asset procure a probability (or output) of 0.2 from the model, it signifies a recommendation that 20% of the portfolio be assigned to that particular asset. However, neural networks are domain agnostic and don't possess inherent financial cognizance. Its outputs, derived from patterns in the training data, are interpreted in this case by financial experts in the context of asset allocations. The network's main goal aligns with the training objective function (explored in section [4.4](#44-objective-function)), and the specific allocations are but a means to achieve that end. Thus, while the model might not fathom the intricacies of finance, its outputs, when correctly interpreted, can seamlessly integrate into portfolio management.
 
@@ -170,11 +170,11 @@ so in the code, the objective function is written to return a negative value.* V
 
 The models are retrained every two years, using all data available up until that point. A hidden dimension size of 64 is used, as per the authors' configuration. A validation size of 20% is used, and each testing period spans 504 days (2 years of trading days). Every model is trained over 100 epochs at each split.
 
-### 5. Results
+## 5. Results
 
-#### 5.1 Training and Validation
+### 5.1 Training and Validation
 
-**No-leverage Models:**
+#### 5.1.1 No-leverage Models
 
 <p align="center">
     <img src="workflow/img/no_lev_training_scheme.png" alt="Training Scheme, No Leverage" width="60%" height="60%">
@@ -192,7 +192,15 @@ In the FCN and CNN architectures, there's a noticeable disparity between trainin
 
 For the FCN architecture, disparity between training (T) and validation (V) persists. Notably, the third split suggests the model has learned the training set intricacies but falters on unseen data, indicative of overfitting. The fluctuation in validation result are especially pronounced in the fourth split, suggesting an overfit model. The model's variability in validation makes it unideal. The CNN model behaves similarly. For instance, the first split with T: 0.18878 and V: 0.10088 showcases the potential overfitting scenario. The validation outcomes, with their alternating positive and negative Sharpe ratios, hint at periods where the model either thrived or faltered. Particularly, the fifth split (T: 1.74004, V: 0.01681) highlights a potentially adversarial period or a lapse in model robustness. The LSTM once again seems most promising. While overfitting is still palpable, the validation outcomes are predominantly positive, echoing the model's aptitude.
 
-#### 5.2 Performance of Models Over Time
+### 5.2 Backtest
+
+- **Transaction costs**: Transaction costs are accounted for by incorporating a cost term into the portfolio return equation. Specifically, these costs are a function of the change in asset weights between two consecutive time periods. A cost coefficient, set at 0.2%, is multiplied by this change to calculate the total cost. This cost is then subtracted from the gross returns, resulting in a net return that reflects the impact of transaction costs on portfolio performance:
+
+<p align="center">
+    <img src="workflow/img/tc.png" alt="Transaction Costs" width="32%" height="32%">
+</p>
+
+Net costs, we have:
 
 <p align="center">
     <img src="workflow/img/backtest_charts.png" alt="Backtest Charts">
@@ -249,3 +257,5 @@ As did the authors of the original paper, we can go further in our analysis and 
 - **Commodities**: The allocation for commodities undergoes pronounced flux as commodity prices oscillate with broader amplitude; the model's allocations seem to somewaht mirror these shifts.
 - **Stocks**: The model seems to have anticipated the impending crash starting March, where it reduced stock allocations from approximately 80% to just over 65%.
 - **Volatility**: Even as volatility prices soar dramatically mid-quarter, the LSTM model contracts its allocation, reflecting its anticipatory stance to sidestep the ensuing volatility surge.
+
+### 6. Limitations
