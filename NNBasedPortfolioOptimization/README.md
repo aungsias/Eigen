@@ -194,7 +194,7 @@ For the FCN architecture, disparity between training (T) and validation (V) pers
 
 ### 5.2 Backtest
 
-- **Transaction costs**: Transaction costs are accounted for by incorporating a cost term into the portfolio return equation. Specifically, these costs are a function of the change in asset weights ($\Delta{w_{i,t}}$) between two consecutive time periods. A cost coefficient ($c$), set at 0.2%, is multiplied by this change to calculate the total cost. This cost is then subtracted from the gross returns of the portfolio ($\sum^n_{i=1}w_{i,t}r_{i,t}$) resulting in a net return that reflects the impact of transaction costs on portfolio performance:
+- **Transaction costs**: Transaction costs are accounted for by incorporating a cost term into the portfolio return equation. Specifically, these costs are a function of the change in asset weights ($\Delta{w_{i,t}}$) between two consecutive time periods. A cost coefficient ($c$), set at 0.2%, is multiplied by this change to calculate the total cost. This cost is then subtracted from the gross returns of the portfolio ($\sum^{n}_{i=1}w_{i,t}r_{i,t}$) resulting in a net return that reflects the impact of transaction costs on portfolio performance:
 
 <p align="center">
     <img src="workflow/img/tc.png" alt="Transaction Costs" width="23%" height="23%">
