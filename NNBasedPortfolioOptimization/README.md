@@ -103,7 +103,7 @@ The Softmax function for a given vector $z$ is defined as:
     <img src="workflow/img/softmax_func.png" alt="Softmax Function" width="25%" height="25%">
 </p>
 
-Where $K$ is the number of classes (or assets in the context of portfolio allocation). The output is a probability distribution over K classes, meaning the sum of the outputs is exactly 1. This is suitable for non-leveraged portfolio allocations where the sum of asset allocations must equal the total investment.
+Where $K$ is the number of classes (or assets in the context of portfolio allocation). The output is a probability distribution over $K$ classes, meaning the sum of the outputs is exactly 1. This is suitable for non-leveraged portfolio allocations where the sum of asset allocations must equal the total investment.
 
 The Softmax function ensures that an increase in the allocation of one asset leads to a corresponding decrease in the allocation of at least one other asset. This is coherent with the non-leveraged scenario, where any increase in one asset's allocation must be offset by reducing others to maintain the total investment constant.
 
@@ -142,7 +142,7 @@ The crux of the optimization problem resides in the above models' output layer, 
 The objective function used to train each model is the key innovation brought forth by the authors of the original paper. Instead of traditional loss functions such as Mean Squared Error (MSE) and the like, each model is trained to maximize the Sharpe ratio per trading period (1 day):
 
 <p align="center">
-    <img src="workflow/img/obj_func.png" alt="Objective Function" width="50%" height="50%">
+    <img src="workflow/img/obj_func.png" alt="Objective Function" width="37%" height="37%">
 </p>
 
 $R_{p,t}$ is the return of the portfolio at time $t$, taken as the sum product of the allocation at time $t$ determined by the model of each asset $i$ and the asset's actual logarithmic return at time $t$. The expected portfolio return, ${E[R_{p,t}]}$ is taken as the mean of the returns within the batch.
