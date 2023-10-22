@@ -221,7 +221,7 @@ Conversely, the FCN and CNN models, both with and without the leverage mechanism
 #### 5.3 Portfolio Metrics
 
 <p align="center">
-    <img src="workflow/img/backtest_stats.png" alt="Backtest Stats" width="50%" height="50%">
+    <img src="workflow/img/backtest_stats.png" alt="Backtest Stats" width="60%" height="60%">
 </p>
 
 - **Sharpe Ratio**: The leveraged LSTM model yields the highest Sharpe ratio at **1.109**, signifying optimal risk-adjusted returns. This is closely trailed by the no-leverage LSTM model at **1.044**. The stock market's Sharpe ratio stands at **0.597**, with most models, except for the CNN and FCN variants, surpassing this benchmark.
