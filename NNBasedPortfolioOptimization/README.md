@@ -151,7 +151,7 @@ The crux of the optimization problem resides in the above models' output layer, 
 The objective function used to train each model is the key innovation brought forth by the authors of the original paper. Instead of traditional loss functions such as Mean Squared Error (MSE) and the like, each model is trained to maximize the Sharpe ratio per trading period (1 day):
 
 <p align="center">
-    <img src="workflow/img/obj_func.png" alt="Objective Function" width="32%" height="32%">
+    <img src="workflow/img/obj_func.png" alt="Objective Function" width="30%" height="30%">
 </p>
 
 $R_{p,t}$ is the return of the portfolio at time $t$, taken as the sum product of the allocation at time $t$ determined by the model of each asset $i$ and the asset's actual logarithmic return at time $t$. The expected portfolio return, ${E[R_{p,t}]}$ is taken as the mean of the returns within the batch.
