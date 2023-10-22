@@ -203,7 +203,7 @@ For the FCN architecture, disparity between training (T) and validation (V) pers
 - **Borrowing Costs and Amortization:** For the leveraged models, we need to account for borrowoing costs and principal amortization. Borrowing costs ($C_{\text{bo}}$) are calculated daily, utilizing the change in leverage ($\Delta{L_{i,t}}$). $L$ is the sum of the portfolio weights in excess of 1, or allocations exceeding the available capital. The daily interest rate, derived from an annual rate of 5%, is applied to the change in leverage. Amortization of principal ($P$) is also accounted for, computed using a daily amortization rate ($A$) based on a 2-year repayment term. These costs, along with the transaction costs, are subtracted from the gross portfolio returns to give us the net portfolio returns:
 
 <p align="center">
-    <img src="workflow/img/bcp.png" alt="Borrowing Costs & Principal" width="27%" height="27%">
+    <img src="workflow/img/bc_p.png" alt="Borrowing Costs & Principal" width="27%" height="27%">
 </p>
 
 Net costs, we have:
