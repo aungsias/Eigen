@@ -201,7 +201,7 @@ As did the authors of the original paper, we can go further in our analysis and 
 ##### 5.3.1 No-leverage LSTM
 
 <p align="center">
-    <img src="workflow/img/unlev_lstm_allocations_covid.png" alt="No-Leverage LSTM Allocations, COVID-19" width="50%" height="50%">
+    <img src="workflow/img/unlev_lstm_allocations_covid.png" alt="No-Leverage LSTM Allocations, COVID-19" width="70%" height="70%">
     <br>
     <i>Figure 2: No-Leverage LSTM Allocations, Q1 2020</i>
 </p>
@@ -214,7 +214,7 @@ As did the authors of the original paper, we can go further in our analysis and 
 ##### 5.3.2 Leveraged LSTM
 
 <p align="center">
-    <img src="workflow/img/lev_lstm_allocations_covid.png" alt="Leveraged LSTM Allocations, COVID-19" width="50%" height="50%">
+    <img src="workflow/img/lev_lstm_allocations_covid.png" alt="Leveraged LSTM Allocations, COVID-19" width="70%" height="70%">
     <br>
     <i>Figure 3: Leveraged LSTM Allocations, Q1 2020</i>
 </p>
