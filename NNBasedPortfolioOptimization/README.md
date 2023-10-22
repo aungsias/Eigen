@@ -29,6 +29,9 @@ October 21<sup>st</sup>, 2023
     - [5.3 Portfolio Metrics](#53-portfolio-metrics)
     - [5.4 Performance During the COVID-19 Downturn](#54-performance-during-the-covid-19-downturn)
 - [6. Conclusion](#6-conclusion)
+- [7. Limitations](#7-limitations)
+- [8. Future Work](#8-future-work)
+- [9. Repository Structure](#9-repository-structure)
 
 ## 1. Overview
 
@@ -279,3 +282,81 @@ This project set out to ascertain the efficacy of neural networks in optimizing 
 - **Objective Function:** Using the Sharpe ratio as the objective function proved instrumental in guiding the models to achieve risk-adjusted performance, diverging from conventional loss functions like MSE.
 
 In summary, this study corroborates the utility of neural networks, particularly LSTM models, as potent tools for portfolio optimization. Their adaptability, ability to handle complex temporal patterns, and resilience against market volatilities make them viable alternatives to traditional methods. Nonetheless, investors would do well to weigh the risk-return trade-offs, particularly when considering leveraged strategies.
+
+## 7. Limitations
+
+- **Data Dependence:** The models are only as good as the data they train on. Any structural breaks or regime shifts in the market could potentially invalidate the model's predictive ability.
+- **Overfitting Risks:** Despite consistent validation performance, LSTM models are complex and run the risk of overfitting, especially when applied to different or less voluminous datasets.
+- **Cost Assumptions:** The models account for transaction and borrowing costs, but these are simplified estimates. Real-world costs can vary and include more complex elements such as spreads, slippage, and liquidity constraints.
+- **Leverage Constraints:** The leveraged model assumes the ability to borrow at a constant interest rate and ignores potential margin calls or funding liquidity risks.
+- **Computational Intensity:** LSTM models, while effective, are computationally intense and may not be suitable for real-time trading where latency is a critical factor.
+- **Model Explainability:** Neural networks are often termed "black boxes" due to their complex architectures. This lack of transparency could be a deterrent for some investors.
+
+## 8. Future Work
+To enhance the robustness and utility of the existing models, several avenues for future research and development are delineated below:
+
+- **Data Augmentation:** Incorporating alternative data sources, such as social sentiment or macroeconomic indicators, could potentially improve predictive accuracy.
+- **Regularization Techniques:** Experimentation with dropout layers or L1/L2 regularization could mitigate the overfitting issue endemic to complex models like LSTMs.
+- **Hyperparameter Tuning:** Utilizing advanced optimization techniques, like Bayesian optimization, to fine-tune model hyperparameters could yield performance gains.
+- **Real-World Costs:** A more granular model of transaction costs, taking into account slippage, liquidity, and variable borrowing rates, could make the model more realistic.
+- **Risk Measures:** Incorporation of alternative risk metrics such as Value at Risk (VaR) or Conditional VaR could provide a more comprehensive risk assessment.
+- **Objective Functions:** There exists an expansive landscape of objective functions yet to be explored, each tailorable to investor appetite and risk tolerance. The current focus on Sharpe ratio as the sole objective function is just one facet of a multifaceted spectrum. Exploring alternative objectives could yield models more attuned to specific investment philosophies or financial metrics, thereby broadening the model's applicability.
+- **Online Learning:** Adapting the model in real-time using online learning algorithms could make it more responsive to sudden market changes.
+- **Interpretable Models:** Exploring hybrid models that combine neural networks with more transparent machine learning algorithms could address the issue of model explainability.
+
+The above trajectories can incrementally fortify the model's practicality and reliability, making it more amenable for adoption in live trading environments.
+
+## 9. Repository Structure
+```
+.
+|-- reference paper/
+|   |-- DeepLearningForPortfolioOptimization_Oxford.pdf
+|-- workflow/
+|   |-- data/
+|   |   |-- optimizations/
+|   |   |   |-- lstm_lev_opt.pkl
+|   |   |-- returns/
+|   |   |   |-- mv_rets.csv
+|   |   |   |-- nn_lev_rets.csv
+|   |   |   |-- nn_unlev_rets.csv
+|   |   |-- weights/
+|   |   |   |-- lev_weights.pkl
+|   |   |   |-- unlev_weights.pkl
+|   |   |-- features.csv
+|   |   |-- index_prices.csv
+|   |-- img/
+|   |   |-- backtest_charts.png
+|   |   |-- backtest_stats.png
+|   |   |-- bc_p.png
+|   |   |-- gradient_ascent.png
+|   |   |-- lev_lstm_allocations_covid.png
+|   |   |-- lev_training_scheme.png
+|   |   |-- no_lev_training_scheme.png
+|   |   |-- obj_func.png
+|   |   |-- sigmoid_func.png
+|   |   |-- softmax_func.png
+|   |   |-- tc.png
+|   |   |-- unlev_lstm_allocations_covid.png
+|   |-- tools/
+|   |   |-- leverage_models/
+|   |   |   |-- __init__.py
+|   |   |   |-- cnn.py
+|   |   |   |-- fcn.py
+|   |   |   |-- lstm.py
+|   |   |-- no_leverage_models/
+|   |   |   |-- __init__.py
+|   |   |   |-- cnn.py
+|   |   |   |-- fcn.py
+|   |   |   |-- lstm.py
+|   |   |-- __init__.py
+|   |   |-- conversion.py
+|   |   |-- metrics.py
+|   |   |-- optimize.py
+|   |   |-- utils.py
+|-- 1_data_and_features.ipynb
+|-- 2_mean_variance_modeling.ipynb
+|-- 3_nn_modeling_with_no_leverage.ipynb
+|-- 4_nn_modeling_with_leverage.ipynb
+|-- 5_backtest.ipynb
+|-- README.md
+```
