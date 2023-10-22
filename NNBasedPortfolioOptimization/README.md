@@ -100,7 +100,7 @@ Understanding the mathematical properties of activation functions is paramount w
 The Softmax function for a given vector $z$ is defined as:
 
 <p align="center">
-    <img src="workflow/img/softmax_func.png" alt="Softmax Function" width="25%" height="25%">
+    <img src="workflow/img/softmax_func.png" alt="Softmax Function" width="22%" height="22%">
 </p>
 
 Where $K$ is the number of classes (or assets in the context of portfolio allocation). The output is a probability distribution over $K$ classes, meaning the sum of the outputs is exactly 1. This is suitable for non-leveraged portfolio allocations where the sum of asset allocations must equal the total investment.
@@ -110,7 +110,7 @@ The Softmax function ensures that an increase in the allocation of one asset lea
 #### 4.2.2 Sigmoid
 
 <p align="center">
-    <img src="workflow/img/sigmoid_func.png" alt="Sigmoid Function" width="17%" height="17%">
+    <img src="workflow/img/sigmoid_func.png" alt="Sigmoid Function" width="15%" height="15%">
 </p>
 
 The sigmoid function ranges between 0 and 1, and it effectively squashes its input into this interval. This makes it apt for representing probabilities or portfolio allocations when considering leveraged scenarios. A value close to 1 can represent a high allocation to a particular asset, while a value close to 0 can indicate minimal or no allocation.
