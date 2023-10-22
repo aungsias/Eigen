@@ -211,7 +211,7 @@ As did the authors of the original paper, we can go further in our analysis and 
 - **Stocks**: The model mitigated exposures to stocks and instead loaded up on bonds during the late February to mid-March window, around when the stock market crash began. It began to increase its stock holdings thereafter once, in time for the bull market that followed.
 - **Volatility**: In the face of burgeoning volatility, the model minimized its volatility allocations when volatility surges are anticipated, revealing its conservative stance.
 
-**Leveraged LSTM*:**
+**Leveraged LSTM:**
 
 <p align="center">
     <img src="workflow/img/lev_lstm_allocations_covid.png" alt="Leveraged LSTM Allocations, COVID-19" width="70%" height="70%">
