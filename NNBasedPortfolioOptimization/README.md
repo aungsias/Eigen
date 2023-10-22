@@ -171,9 +171,9 @@ The models are retrained every two years, using all data available up until that
 #### 5.1 Performance of Models Over Time
 
 <p align="center">
-    <img src="workflow/img/backtest_charts.png" alt="Backtest Charts" width="120%" height="120%">
+    <img src="workflow/img/backtest_charts.png" alt="Backtest Charts">
     <br>
-    <i>Figure 1: Equity curves vs. VTI</i>
+    <i>Figure 1: Equity Curves vs. VTI, Cumulative Logarithmic Return</i>
 </p>
 
 In assessing the models over time, the leveraged LSTM model conspicuously stands out with its stellar performance, markedly surpassing its no-leverage counterpart and the broader stock market epitomized by VTI. Such dominance accentuates its adeptness at capturing market trends, capitalizing often antithetical market trends, and overall its prowess in return generation. In juxtaposition, the Mean Variance models, irrespective of whether they deploy leverage or not, tread similar paths, indicating a degree of consistency. Yet, they remain eclipsed by the superior performance of the LSTM models.
