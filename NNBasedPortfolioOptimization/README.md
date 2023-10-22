@@ -28,6 +28,7 @@ October 21<sup>st</sup>, 2023
     - [5.2 Performance of Models Over Time](#52-performance-of-models-over-time)
     - [5.3 Portfolio Metrics](#53-portfolio-metrics)
     - [5.4 Performance During the COVID-19 Downturn](#54-performance-during-the-covid-19-downturn)
+- [6. Conclusion](#6-conclusion)
 
 ## 1. Overview
 
@@ -35,7 +36,7 @@ October 21<sup>st</sup>, 2023
 
 The original paper, written by Zihao Zhang, Stefan Zohren, and Stephen Roberts, introduces a novel approach to portfolio optimization by employing neural networks. Unlike traditional mean-variance methods, which are inherently static and rely on historical data, the paper's approach uses the Sharpe ratio as the objective function (maximized via gradient ascent) to adaptively optimize portfolio allocations. This creates a more dynamic, forward-looking model capable of adjusting to market conditions. While the authors tested various models such as FCN, CNN, and LSTM using a long-only strategy without leverage, my exploration included both with and without leverage approaches. The critical distinction lies in the application of sigmoid and softmax functions.
 
-Another noteworthy divergence is in volatility scaling: while the authors applied it, I opted against its implementation for the sake of concision. It should be noted here that volatility scaling inherently employs leverage, so in some sense, the weights output by the sigmoid model that I employed share some similarities with the authors' volatility-scaled allocations. Despite the differences, I corroborated their conclusion that the LSTM model exhibited the most adaptability and consistently superior performance. Specifically, in my rendition, the leveraged LSTM model surpassed the VTI index by 152.4%, boasting an impressive Sharpe ratio of 1.12 versus VTI's 0.59 over a decade-long backtesting period. Conversely, the non-leveraged LSTM model yielded a 50.9% advantage over the VTI and recorded a Sharpe ratio of 1.09 against VTI's 0.59.
+Another noteworthy divergence is in volatility scaling: while the authors applied it, I opted against its implementation for the sake of concision. It should be noted here that volatility scaling inherently employs leverage, so in some sense, the weights output by the sigmoid model that I employed share some similarities with the authors' volatility-scaled allocations. Despite the differences, I corroborated their conclusion that the LSTM model exhibited the most adaptability and consistently superior performance. Specifically, in my rendition, the leveraged LSTM model surpassed the VTI index by 149.3%, boasting an impressive Sharpe ratio of 1.109 versus VTI's 0.597 over a decade-long backtesting period. Conversely, the non-leveraged LSTM model yielded a 60.6% advantage over the VTI and recorded a Sharpe ratio of 1.044 against VTI's 0.597.
 
 A salient characteristic of the sigmoid function, especially pertinent to my leveraged model, is its behavior. On certain dates, it results in leveraging, while on others, not all available capital is deployed. This variability speaks to the model's adaptability to market dynamics, optimizing capital utilization based on prevailing conditions.
 
