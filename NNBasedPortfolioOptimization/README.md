@@ -162,7 +162,7 @@ so in the code, the objective function is written to return a negative value.* V
 The models are retrained every two years, using all data available up until that point. A hidden dimension size of 64 is used, as per the authors' configuration. A validation size of 20% is used, and each testing period spans 504 days (2 years of trading days). For example:
 
 <p align="center">
-    <img src="workflow/img/training_scheme.png" alt="Training Scheme" width="55%" height="55%">
+    <img src="workflow/img/training_scheme.png" alt="Training Scheme" width="62%" height="62%">
     <br>
 </p>
 
