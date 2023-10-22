@@ -216,7 +216,7 @@ Net costs, we have:
 
 In assessing the models over time, the leveraged LSTM model conspicuously stands out with its stellar performance, markedly surpassing its no-leverage counterpart and the broader stock market epitomized by VTI. Such dominance accentuates its adeptness at capturing market trends, capitalizing often antithetical market trends, and overall its prowess in return generation. In juxtaposition, the Mean Variance models, irrespective of whether they deploy leverage or not, tread similar paths, indicating a degree of consistency. Yet, they remain eclipsed by the superior performance of the LSTM models.
 
-Conversely, the FCN and CNN models, both with and without the leverage mechanism, seem to grapple in keeping pace, lagging discernibly behind their LSTM and Mean Variance counterparts. This dichotomy underscores the variability in model efficacies and their intrinsic methodologies.
+Conversely, the FCN and CNN models, both with and without the leverage mechanism, seem to grapple in keeping pace, lagging discernibly behind their LSTM and Mean Variance counterparts.
 
 #### 5.3 Portfolio Metrics
 
@@ -264,4 +264,13 @@ As did the authors of the original paper, we can go further in our analysis and 
 - **Stocks**: The model seems to have anticipated the impending crash starting March, where it reduced stock allocations from approximately 80% to just over 65%.
 - **Volatility**: Even as volatility prices soar dramatically mid-quarter, the LSTM model contracts its allocation, reflecting its anticipatory stance to sidestep the ensuing volatility surge.
 
-### 6. Limitations
+### 6. Conclusion
+
+This project set out to ascertain the efficacy of neural networks in optimizing financial portfolios, contrasting the results against traditional Mean Variance Optimization (MVO). The foray shed light on the utility and dynamic advantages of using neural networks, specifically LSTM models, over their static MVO counterparts. The FCN and CNN architectures showed signs of overfitting, evidenced by the disparity between training and validation Sharpe ratios. This compromises their generalizability to unseen data and hence their utility in real-world applications. Both the leveraged and non-leveraged LSTM models, on the other hand displayed robust performance, outstripping the other models and the broader stock market in terms of Sharpe ratio and cumulative returns.
+
+- **Leverage Benefits and Risks:** The leveraged LSTM model registered remarkable performance metrics but at the cost of heightened volatility and potential risks, thus necessitating a higher risk tolerance from investors.
+- **COVID-19 Downturn:** During the tumultuous period of early 2020, the LSTM models displayed adept asset allocation strategies, optimizing portfolio performance amidst market volatility.
+- **Real-world Feasibility:&& When accounting for transaction costs, borrowing costs, and principal amortization, the models still yielded returns superior to the market, bolstering the study's external validity.
+- **Objective Function:** Using the Sharpe ratio as the objective function proved instrumental in guiding the models to achieve risk-adjusted performance, diverging from conventional loss functions like MSE.
+
+In summary, this study corroborates the utility of neural networks, particularly LSTM models, as potent tools for portfolio optimization. Their adaptability, ability to handle complex temporal patterns, and resilience against market volatilities make them viable alternatives to traditional methods. Nonetheless, investors would do well to weigh the risk-return trade-offs, particularly when considering leveraged strategies.
