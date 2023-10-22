@@ -309,7 +309,7 @@ The above trajectories can incrementally fortify the model's practicality and re
 ## 9. Repository Structure
 ```
 .
-|-- reference paper/
+|-- reference_paper/
 |   |-- DeepLearningForPortfolioOptimization_Oxford.pdf
 |-- workflow/
 |   |-- data/
