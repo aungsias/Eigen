@@ -20,7 +20,7 @@ October 21<sup>st</sup>, 2023
         - [4.2.2 Sigmoid](#422-sigmoid)
         - [4.2.3](#423-interpreting-probabilities-as-portfolio-allocations)
         - [4.2.4](#424-leverage-factor)
-    - [4.3 Model Architectures, Inputs, Targets, and Outputs]
+    - [4.3 Model Architectures, Inputs, Targets, and Outputs](#43-model-architectures-inputs-targets-and-outputs)
     - [4.4 Objective Function](#44-objective-function)
     - [4.5 Training Scheme](#45-training-scheme)
 - [5. Results](#5-results)
