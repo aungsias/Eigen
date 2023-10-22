@@ -6,19 +6,27 @@ October 21<sup>st</sup>, 2023
 ---
 
 ## Contents
-- [1. Overview](#overview)
-- [2. The Staticity of Mean Variance Optimization](#the-staticity-of-mean-variance-optimization)
-- [3. Methodology & Data](#methodology--data)
+- [1. Overview](#1-overview)
+- [2. The Staticity of Mean Variance Optimization](#2-the-staticity-of-mean-variance-optimization)
+- [3. Methodology & Data](#3-methodology--data)
     - [3.1. Feature Engineering](#31-feature-engineering)
     - [3.2. Sidestepping Price / Return Forecasting](#32-sidestepping-price--return-forecasting)
     - [3.3. Data Sources](#33-data-sources)
     - [3.4. Temporal Considerations](#34-temporal-considerations)
 - [4. Modeling](#4-modeling)
-7. Results
-8. Conclusion
-9. Limitations
-10. Future Work
-11. Repository Structure
+    - [4.1 Leveraged vs Non-leveraged Scenarios](#41-leveraged-vs-non-leveraged-scenarios)
+    - [4.2 Activation Functions: Sigmoid vs Softmax](#42-activation-functions-sigmoid-vs-softmax)
+        - [4.2.1 Softmax](#421-softmax)
+        - [4.2.2 Sigmoid](#422-sigmoid)
+        - [4.2.3](#423-interpreting-probabilities-as-portfolio-allocations)
+        - [4.2.4](#424-leverage-factor)
+    - [4.3 Model Architectures, Inputs, Targets, and Outputs]
+    - [4.4 Objective Function](#44-objective-function)
+    - [4.5 Training Scheme](#45-training-scheme)
+- [5. Results](#5-results)
+    - [5.1 Performance of Models Over Time](#51-performance-of-models-over-time)
+    - [5.2 Portfolio Metrics](#52-portfolio-metrics)
+    - [5.3 Performance During the COVID-19 Downturn](#53-performance-during-the-covid-19-downturn)
 
 ## 1. Overview
 
