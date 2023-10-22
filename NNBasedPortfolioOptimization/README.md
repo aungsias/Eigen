@@ -110,7 +110,7 @@ The Softmax function ensures that an increase in the allocation of one asset lea
 #### 4.2.2 Sigmoid
 
 <p align="center">
-    <img src="workflow/img/sigmoid_func.png" alt="Sigmoid Function" width="25%" height="25%">
+    <img src="workflow/img/sigmoid_func.png" alt="Sigmoid Function" width="20%" height="20%">
 </p>
 
 The sigmoid function ranges between 0 and 1, and it effectively squashes its input into this interval. This makes it apt for representing probabilities or portfolio allocations when considering leveraged scenarios. A value close to 1 can represent a high allocation to a particular asset, while a value close to 0 can indicate minimal or no allocation.
