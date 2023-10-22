@@ -100,9 +100,7 @@ Understanding the mathematical properties of activation functions is paramount w
 The Softmax function for a given vector $z$ is defined as:
 
 <p align="center">
-    <img src="workflow/img/softmax_func.png" alt="Softmax Function" width="50%" height="50%">
-    <br>
-    <i>Figure 3: Leveraged LSTM Allocations, Q1 2020</i>
+    <img src="workflow/img/softmax_func.png" alt="Softmax Function" width="25%" height="25%">
 </p>
 
 Where $K$ is the number of classes (or assets in the context of portfolio allocation). The output is a probability distribution over K classes, meaning the sum of the outputs is exactly 1. This is suitable for non-leveraged portfolio allocations where the sum of asset allocations must equal the total investment.
@@ -111,7 +109,9 @@ The Softmax function ensures that an increase in the allocation of one asset lea
 
 #### 4.2.2 Sigmoid
 
-$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
+<p align="center">
+    <img src="workflow/img/sigmoid_func.png" alt="Sigmoid Function" width="25%" height="25%">
+</p>
 
 The sigmoid function ranges between 0 and 1, and it effectively squashes its input into this interval. This makes it apt for representing probabilities or portfolio allocations when considering leveraged scenarios. A value close to 1 can represent a high allocation to a particular asset, while a value close to 0 can indicate minimal or no allocation.
 
@@ -141,17 +141,17 @@ The crux of the optimization problem resides in the above models' output layer, 
 
 The objective function used to train each model is the key innovation brought forth by the authors of the original paper. Instead of traditional loss functions such as Mean Squared Error (MSE) and the like, each model is trained to maximize the Sharpe ratio per trading period (1 day):
 
-$$L_{T} = \frac{E[R_{p, t}]}{\text{Std}{[R_{p, t}]}} = \frac{E[R_{p,t}]}{\sqrt{E[R^{2}_{p,t}] - (E[R_{p,t}])^{2}}}$$
-$$\text{where}$$
-$$E[R_{p,t}] = \frac{1}{T} \sum^T_{t=1} R_{p,t}$$
-$$\text{and}$$
-$$R_{p,t} = \sum^{K}_{i=1}w_{i,t} \times R_{i,t}\quad\text{;}\quad K=4$$
+<p align="center">
+    <img src="workflow/img/obj_func.png" alt="Objective Function" width="50%" height="50%">
+</p>
 
 $R_{p,t}$ is the return of the portfolio at time $t$, taken as the sum product of the allocation at time $t$ determined by the model of each asset $i$ and the asset's actual logarithmic return at time $t$. The expected portfolio return, ${E[R_{p,t}]}$ is taken as the mean of the returns within the batch.
 
 By default, the models follow gradient descent, but we intend to maximize the Sharpe ratio via gradient *ascent*,
 
-$$\theta_{\text{new}} = \theta_{\text{old}} + \frac{\partial{L_T}}{\partial{\theta}}$$
+<p align="center">
+    <img src="workflow/img/gradient_ascent.png" alt="Gradient Ascent" width="25%" height="25%">
+</p>
 
 so in the code, the objective function is written to return a negative value.* View the [`metrics`](workflow/tools/metrics.py) module to see the implementation of the objective function in code.
 
