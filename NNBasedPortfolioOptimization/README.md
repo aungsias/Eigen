@@ -24,9 +24,10 @@ October 21<sup>st</sup>, 2023
     - [4.4 Objective Function](#44-objective-function)
     - [4.5 Training Scheme](#45-training-scheme)
 - [5. Results](#5-results)
-    - [5.1 Performance of Models Over Time](#51-performance-of-models-over-time)
-    - [5.2 Portfolio Metrics](#52-portfolio-metrics)
-    - [5.3 Performance During the COVID-19 Downturn](#53-performance-during-the-covid-19-downturn)
+    - [5.1 Training and Validation](#51-training-and-validation)
+    - [5.2 Performance of Models Over Time](#52-performance-of-models-over-time)
+    - [5.3 Portfolio Metrics](#53-portfolio-metrics)
+    - [5.4 Performance During the COVID-19 Downturn](#54-performance-during-the-covid-19-downturn)
 
 ## 1. Overview
 
@@ -167,16 +168,31 @@ so in the code, the objective function is written to return a negative value.* V
 
 ### 4.5 Training Scheme
 
-The models are retrained every two years, using all data available up until that point. A hidden dimension size of 64 is used, as per the authors' configuration. A validation size of 20% is used, and each testing period spans 504 days (2 years of trading days). For example:
-
-<p align="center">
-    <img src="workflow/img/training_scheme.png" alt="Training Scheme" width="62%" height="62%">
-    <br>
-</p>
+The models are retrained every two years, using all data available up until that point. A hidden dimension size of 64 is used, as per the authors' configuration. A validation size of 20% is used, and each testing period spans 504 days (2 years of trading days). Every model is trained over 100 epochs at each split.
 
 ### 5. Results
 
-#### 5.1 Performance of Models Over Time
+#### 5.1 Training and Validation
+
+**No-leverage Models:**
+
+<p align="center">
+    <img src="workflow/img/no_lev_training_scheme.png" alt="Training Scheme, No Leverage" width="45%" height="45%">
+    <br>
+</p>
+
+In the FCN and CNN architectures, there's a noticeable disparity between training (T) and validation (V) outcomes. For instance, the FCN model's first split shows T: 0.95816 and V: 0.20811. This stark contrast suggests overfitting. The LSTM model also shows consistent overfitting, although its validation Sharpe ratios are positive and seem realistic. Overall, there is no conspicuous evidence of underfitting. Most training results are robust. Validation results oscillate for the FCN model; the third split even presents a negative Sharpe ratio, which isn't ideal. For the CNN, we see a mix of positive and negative Sharpe ratios. The negative Sharpe ratio in the second and fifth splits denotes potential adversarial periods or model instability. In sum, the LSTM shows consistently positive validation, suggesting it handles the time series data more adeptly. The FCN and CNN models, despite their prowess on training data, show potential overfitting signs given their variable validation results. The LSTM by far showcases he most consistent validation performance, suggesting its suitability for the dataset's temporal nature.
+
+**Leveraged Models:**
+
+<p align="center">
+    <img src="workflow/img/lev_training_scheme.png" alt="Training Scheme, Leveraged" width="45%" height="45%">
+    <br>
+</p>
+
+For the FCN architecture, disparity between training (T) and validation (V) persists. Notably, the third split suggests the model has learned the training set intricacies but falters on unseen data, indicative of overfitting. The fluctuation in validation result are especially pronounced in the fourth split, suggesting an overfit model. The model's variability in validation makes it unideal. The CNN model behaves similarly. For instance, the first split with T: 0.18878 and V: 0.10088 showcases the potential overfitting scenario. The validation outcomes, with their alternating positive and negative Sharpe ratios, hint at periods where the model either thrived or faltered. Particularly, the fifth split (T: 1.74004, V: 0.01681) highlights a potentially adversarial period or a lapse in model robustness. The LSTM once again seems most promising. While overfitting is still palpable, the validation outcomes are predominantly positive, echoing the model's aptitude.
+
+#### 5.2 Performance of Models Over Time
 
 <p align="center">
     <img src="workflow/img/backtest_charts.png" alt="Backtest Charts">
@@ -188,7 +204,7 @@ In assessing the models over time, the leveraged LSTM model conspicuously stands
 
 Conversely, the FCN and CNN models, both with and without the leverage mechanism, seem to grapple in keeping pace, lagging discernibly behind their LSTM and Mean Variance counterparts. This dichotomy underscores the variability in model efficacies and their intrinsic methodologies.
 
-#### 5.2 Portfolio Metrics
+#### 5.3 Portfolio Metrics
 
 - **Sharpe Ratio**: The leveraged LSTM model yields the highest Sharpe ratio at **1.109**, signifying optimal risk-adjusted returns. This is closely trailed by the no-leverage LSTM model at **1.044**. The stock market's Sharpe ratio stands at **0.597**, with most models, except for the CNN and FCN variants, surpassing this benchmark.
 
@@ -202,7 +218,7 @@ Conversely, the FCN and CNN models, both with and without the leverage mechanism
 
 In summation, the LSTM models, especially when leveraged, emerge as the most efficacious in this assessment, outpacing other models and the stock market. However, the feasibility of the leveraged models come down to the risk appetite of the investor, given the inherent risks associated with leveraging.
 
-#### 5.3 Performance During the COVID-19 Downturn
+#### 5.4 Performance During the COVID-19 Downturn
 
 As did the authors of the original paper, we can go further in our analysis and see the allocations that led to the stellar performance within each LSTM model. To do this we'll examine the allocations at the COVID-19 downturn, taking place in the first quarter of 2020.
 
