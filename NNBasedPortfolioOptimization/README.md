@@ -1,4 +1,4 @@
-# Portfolio Optimization via Neural Networks
+# Portfolio Optimization via Deep Learning
 
 Aung Si<br>
 October 21<sup>st</sup>, 2023
