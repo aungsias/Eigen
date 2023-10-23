@@ -1,6 +1,4 @@
-# Eigen
-
-by Aung Si
+![LOGO](logo.png)
 
 Welcome to ***Eigen***, an evolving repository showcasing my work primarily in finance and machine learning, with occasional forays into other business and economics domains. Created to archive and disseminate my ongoing endeavors, Eigen is subject to regular and frequent updates, both in content and structure.
 
