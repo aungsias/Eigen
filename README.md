@@ -28,8 +28,6 @@ pip install -r requirements.txt
 - Email: [aungsi.as99@gmail.com](mailto:aungsi.as99@gmail.com)
 - LinkedIn: [Aung Si](https://www.linkedin.com/in/aungsi99)
 
----
-
 ## Project Catalogue
 
 - [DynamicAssetManagement](DynamicAssetManagement) - In this project, I engineered a dynamic, machine learning-driven framework for adaptive sector-based investment. Through biannual model recalibrations, the strategy remains agile, adjusting to market shifts and optimizing asset allocation. A 16-year backtest shows it outperforms traditional benchmarks like the S&P 500. The architecture, comprehensive yet adaptable, incorporates risk management via a custom loss function, making it suitable for long-only portfolios. I also discuss its limitations and propose avenues for future refinement.
