@@ -1,4 +1,4 @@
-![LOGO](LOGO.png)
+![Eigen](eigen.png)
 
 ## About
 
