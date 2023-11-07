@@ -43,8 +43,6 @@ Another noteworthy divergence is in volatility scaling: while the authors applie
 
 A salient characteristic of the sigmoid function, especially pertinent to my leveraged model, is its behavior. On certain dates, it results in leveraging, while on others, not all available capital is deployed. This variability speaks to the model's adaptability to market dynamics, optimizing capital utilization based on prevailing conditions.
 
-Lastly, while the original paper furnished an architecture template, the exact model specifications were not touched upon. The task of defining the models, therefore, was undertaken independently, relying on the provided blueprint yet necessitating intricate detailing on my part.
-
 All implementations of neural networks in this project were carried out with [`PyTorch`](https://pytorch.org).
 
 ## 2. The Staticity of Mean Variance Optimization
