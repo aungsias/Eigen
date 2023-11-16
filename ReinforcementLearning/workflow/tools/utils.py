@@ -1,10 +1,6 @@
 import pandas as pd
 import numpy as np
 
-def get_dji():
-    url = "https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average"
-    return pd.read_html(url)[1]["Symbol"].to_list()
-
 class Indicators:
     def __init__(self, data):
         self.prices = data["Adj Close"]
@@ -17,8 +13,8 @@ class Indicators:
         rsi = self.get_rsi(self.prices)
         cci = self.get_cci(self.high, self.low, self.close)
         adx = self.get_adx(self.high, self.low, self.close)
-        v = self.get_turbulence(self.prices)
-        return pd.concat([macd, rsi, cci, adx, v], axis=1)
+        turb = self.get_turbulence(self.prices)
+        return pd.concat([macd, rsi, cci, adx, turb], axis=1)
 
     @staticmethod
     def get_macd(stock_prices):
@@ -80,17 +76,24 @@ class Indicators:
     
     @staticmethod
     def get_turbulence(stock_prices):
-        stock_rets = stock_prices.pct_change().dropna()
-        mu = stock_rets.mean()
-        inv_cov = np.linalg.inv(stock_rets.cov())
-        t = pd.Series(index=stock_rets.index)
 
-        for date in stock_rets.index:
-            rt = stock_rets.loc[date]
+        window = 50
+        stock_rets = stock_prices.pct_change().fillna(0)
+        stock_rets_arr = stock_rets.values
+        turbulence = np.zeros(len(stock_rets))
+
+        for i in range(window, len(stock_rets_arr)):
+            past_rets_arr = stock_rets_arr[:i]
+            rt = past_rets_arr[-1]
+            mu = np.mean(past_rets_arr[:-1], axis=0)
+            inv_cov = np.linalg.inv(np.cov(past_rets_arr.T))
             diff = rt - mu
-            vt = np.dot(np.dot(diff, inv_cov), diff)
-            t.loc[date] = vt
-        
-        t.name = "TURB"
+            turbulence[i] = np.dot(np.dot(diff, inv_cov), diff)
 
-        return t
+        turbulence = pd.Series(turbulence, index=stock_rets.index, name="TURB")
+        turbulence = turbulence[turbulence != 0]
+
+        return turbulence
+
+def strftime(date):
+    return date.strftime('%Y-%m-%d')
