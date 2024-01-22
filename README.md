@@ -6,7 +6,7 @@ Welcome to ***Eigen***, an evolving repository showcasing my work primarily in f
 
 Feel free to explore, and thank you for taking the time to visit my repository.
 
-<sub>*Eigen was ceated to archive and distribute my ongoing endeavors is therefore subject to regular and frequent updates, both in content and structure.*</sub>
+<sub>***Eigen was created to archive and distribute my ongoing endeavors is therefore subject to regular and frequent updates, both in content and structure.***</sub>
 
 ## Installation
 
