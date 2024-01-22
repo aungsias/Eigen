@@ -34,7 +34,7 @@ pip install -r requirements.txt # Note: this may not work and you may have to ma
 
 - [`DeepLearningPortfolioOptimization`](DeepLearningPortfolioOptimization) - This project focuses on using neural networks for optimizing investment portfolios, drawing inspiration from a [University of Oxford study](DeepLearningPortfolioOptimization/reference_paper/DeepLearningForPortfolioOptimization_Oxford.pdf) but with significant differences in implementation. This includes experimenting with both leveraged and non-leveraged investment strategies, opting out of volatility scaling, and using various activation functions in the models depdending on whether the strategy is leverage on or leverage off. The Long Short-Term Memory (LSTM) neural network, especially when applied to leveraged investments, demonstrated superior performance compared to other models and the VTI index across a ten-year backtesting period. This approach is also forward-looking, contrasting with the static nature of traditional Mean-Variance Optimization techniques. The LSTM models showed resilience and outperformance even within regimes of market turmoil, namely the Q1 market crash of 2020 caused by the COVID-19 pandemic.
 
-- Simulation - TBD
+- `Simulation` - TBD
 
 - `__tinkering__` - TBD
 
